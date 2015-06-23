@@ -1,0 +1,47 @@
+<PatientInfo>
+    <FileVersion>
+        3.0
+    </FileVersion>
+    <SoftwareVersion>
+        Z.12.109
+    </SoftwareVersion>
+    <SystemName>
+        CNS10027
+    </SystemName>
+    <MACAddr>
+        00:03:1d:09:85:bc
+    </MACAddr>
+    <PatientFirstName>
+        AUG101
+    </PatientFirstName>
+    <PatientLastName>
+        
+    </PatientLastName>
+    <MedicalRecordNumber>
+        
+    </MedicalRecordNumber>
+    <PhysicianName>
+        
+    </PhysicianName>
+    <Gender>
+        
+    </Gender>
+    <Birthdate>
+        
+    </Birthdate>
+    <AdditionalInfo>
+        
+    </AdditionalInfo>
+    <TimeStamp>
+        1432806363632600
+    </TimeStamp>
+    <SystemOffset>
+        -3568
+    </SystemOffset>
+    <RecordingEndTime>
+        1433243357405033
+    </RecordingEndTime>
+    <Protocol>
+        CHD - Solar
+    </Protocol>
+</PatientInfo>

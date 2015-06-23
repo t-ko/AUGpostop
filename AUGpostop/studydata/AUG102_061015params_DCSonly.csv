@@ -1,0 +1,27 @@
+studyID,AUG102_061015,AUG102_061015,AUG102_061015,AUG102_061015,AUG102_061015,AUG102_061015,AUG102_061015,AUG102_061015,AUG102_061015,AUG102_061015,AUG102_061015,AUG102_061015
+patdate,20150610,20150610,20150611,20150612,20150613,20150614,20150615,20150616,20150617,20150618,20150619,20150620
+abs_analysisID,absolutes,absolutes_061015,absolutes_061115,absolutes_061215,absolutes_061315,absolutes_061415,absolutes_061515,absolutes_061615,absolutes_061715,absolutes_061815,absolutes_061915,absolutes_062015
+cal_ind,1 3 5,1 3 5,1 3 5,1 3 5,1 3 5,1 3 5,1 3 5,1 3 5,1 3 5,1 3 5,1 3 5,1 3 5
+check_ind,2 4 6,2 4 6,2 4 6,2 4 6,2 4 6,2 4 6,2 4 6,2 4 6,2 4 6,2 4 6,2 4 6,2 4 6
+left_ind,11 12 13 14,7 8 9 10,7 8 9 10 11,7 8 9 10,7 8 9 10,7 8 9 10,11 12 13 14,7 8 9 10 11,12 13 14 15 16,11 12 13 14,11 12 13 14,11 12 13 14
+right_ind,7 8 9 10,11 12 13 14,12 13 14 15,11 12 13 14,11 12 13 14,11 12 13 14,7 8 9 10,12 13 14 15,7 8 9 10 11,7 8 9 10,7 8 9 10,7 8 9 10
+left_parietal_ind,,,,,,,,,,,,
+right_parietal_ind,,,,,,,,,,,,
+BFI_prefix,BFI_1,BFI_5,BFI_061115,BFI_061215,BFI_061315,BFI_061415,BFI_061515,BFI_061615,BFI_061715,BFI_061815,BFI_061915,BFI_062015
+BFI_analysisID,BFI_1_abs_fitavg,BFI_061015abs_fitavg,BFI_061115abs_fitavg,BFI_061215abs_fitavg,BFI_061315abs_fitavg,BFI_061415abs_fitavg,BFI_061515abs_fitavg,BFI_061615abs_fitavg,BFI_061715abs_fitavg,BFI_061815abs_fitavg,BFI_061915abs_fitavg,BFI_062015abs_fitavg
+usedflowdets,1 2 3 4 5 6 7,1 2 3 4 5 6 7,1 2 3 4 5 6 7,1 2 3 4 5 6 7,1 2 3 4 5 6 7,1 2 3 4 5 6 7,1 2 3 4 5 6 7,1 2 3 4 5 6 7,1 2 3 4 5 6 7,1 2 3 4 5 6 7,1 2 3 4 5 6 7,1 2 3 4 5 6 7
+left_marks,3 4,1 2,2 4,1 2,1 2,3 4,3 4,3 4,3 4,3 4,5 6,3 4
+right_marks,1 2,3 4,5 6,3 4,3 4,1 2,1 2,1 2,1 2,1 2,1 2,1 2
+left_parietal_marks,,,,,,,,,,,,
+right_parietal_marks,,,,,,,,,,,,
+abs_probe_pos_left,bottom,bottom,bottom,bottom,bottom,top,top,top,bottom,top,bottom,top
+abs_probe_pos_right,bottom,bottom,bottom,top,top,top,bottom,top,top,top,top,top
+abs_probe_pos_left_parietal,,,,,,,,,,,,
+abs_probe_pos_right_parietal,,,,,,,,,,,,
+BFI_probe_post_left,bottom,bottom,bottom,bottom,bottom,top,top,top,bottom,bottom,bottom,bottom
+BFI_probe_post_right,bottom,bottom,bottom,bottom,,bottom,top,top,bottom,top,bottom,top
+BFI_probe_post_left_parietal,,,,,,,,,,,,
+BFI_probe_post_right_parietal,,,,,,,,,,,,
+abs_probe,custom1,custom1,custom1,custom1,custom1,custom1,custom1,custom1,custom1,custom1,custom1,custom1
+dcs_probe,trapezoid,trapezoid,trapezoid,trapezoid,trapezoid,trapezoid,trapezoid,trapezoid,trapezoid,trapezoid,trapezoid,trapezoid
+comments,det 5 is not as high as others,,ignore BFI mark 3,,,,,extreme bleeding prior to measurement while removing UAC line,,,,mom concluded tube feeding in between DOS and DCS measurements

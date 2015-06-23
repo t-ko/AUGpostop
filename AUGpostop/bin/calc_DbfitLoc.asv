@@ -1,0 +1,25 @@
+rownames = {};
+mua_list = [];
+muastd_list = [];
+musp_list = [];
+muspstd_list = [];
+for rn = 1:length(regionmarks)
+    if ~isempty(findstr(grouplabels{rn},'eft')) && ~isempty(findstr(grouplabels{rn},'orehead'))
+        mua_list(1,:) = nanmean(nanmean(Dbfitavg(Marksflow(regionmarks{rn}(1)):Marksflow(regionmarks{rn}(2)))));
+        DbfitLoc.left_std = nanstd(Dbfitavg(Marksflow(regionmarks{rn}(1)):Marksflow(regionmarks{rn}(2))));
+        rownames = {rownames{:} regionmarks{rn}};
+    elseif ~isempty(findstr(grouplabels{rn},'eft')) && (~isempty(findstr(grouplabels{rn},'ietal')) || ~isempty(findstr(grouplabels{rn},'ide')))
+        DbfitLoc.leftparietal = nanmean(Dbfitavg(Marksflow(regionmarks{rn}(1)):Marksflow(regionmarks{rn}(2))));
+        DbfitLoc.leftparietal_std = nanstd(Dbfitavg(Marksflow(regionmarks{rn}(1)):Marksflow(regionmarks{rn}(2))));
+        rownames = {rownames{:} regionmarks{rn}};
+    elseif ~isempty(findstr(grouplabels{rn},'ight')) && ~isempty(findstr(grouplabels{rn},'orehead'))
+        DbfitLoc.right = nanmean(Dbfitavg(Marksflow(regionmarks{rn}(1)):Marksflow(regionmarks{rn}(2))));
+        DbfitLoc.right_std = nanstd(Dbfitavg(Marksflow(regionmarks{rn}(1)):Marksflow(regionmarks{rn}(2))));
+        rownames = {rownames{:} regionmarks{rn}};
+    elseif ~isempty(findstr(grouplabels{rn},'ight')) && (~isempty(findstr(grouplabels{rn},'ietal')) || ~isempty(findstr(grouplabels{rn},'ide')))
+        DbfitLoc.rightparietal = nanmean(Dbfitavg(Marksflow(regionmarks{rn}(1)):Marksflow(regionmarks{rn}(2))));
+        DbfitLoc.rightparietal_std = nanstd(Dbfitavg(Marksflow(regionmarks{rn}(1)):Marksflow(regionmarks{rn}(2))));
+        rownames = {rownames{:} regionmarks{rn}};
+    end
+end    
+DbfitLoc

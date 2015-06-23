@@ -1,0 +1,281 @@
+   <workingProtocol format="4" multipleSources="true" protocol_name="CHD - Solar" userProtocol="true" >
+      <Description authors="Unknown" created="2011 Feb 21  13:31" version="000-000-000  Rev D" purpose="Variation of CHD" modified="2015 Apr 1  20:16" />
+      <MainScreen screen_name="CICU 12&lt;br>HR." step_name="Monitor Trends" />
+      <AdditionalPatientInfo>
+         <Field type="Time" name="TimeOfBirth" label="Time of Birth" />
+         <Field type="GestationalAge" name="GestationalAge" label="Gestational Age" />
+      </AdditionalPatientInfo>
+      <Steps>
+         <Step modifiable="no" step_name="Setup" systemStep="Setup" />
+         <Step step_name="Monitor Trends" >
+            <Screens>
+               <Screen screen_name="Overview" layout="NarrowFullScreen" >
+                  <Areas>
+                     <Area area_name="Overview" >
+                        <Display display_name="Overview" >
+                           <Type>
+                                        HTML
+                                    </Type>
+                           <Filename>
+                                        common/MonitorEEGTrends_Overview.html
+                                    </Filename>
+                        </Display>
+                     </Area>
+                  </Areas>
+               </Screen>
+               <Screen screen_name="Vital Sign Trends" layout="FullScreen" >
+                  <Areas>
+                     <Area area_name="Area1" >
+                        <Display display_name="Display1" >
+                           <Type>
+                                        Trend
+                                    </Type>
+                           <Traces>
+                              <Trace modality="HR" readout="Follow Trace" source="Solar" />
+                              <Trace modality="RR" readout="Follow Trace" source="Solar" />
+                              <Trace modality="ART" readout="Follow Trace" source="Solar" />
+                              <Trace modality="SpO2" readout="Follow Trace" source="Solar" />
+                              <Trace modality="GCS" readout="Follow Trace" source="ManualEntry" />
+                              <Trace modality="Hct" readout="Follow Trace" source="CDI" />
+                           </Traces>
+                        </Display>
+                     </Area>
+                  </Areas>
+               </Screen>
+               <Screen screen_name="MRI STUDY" layout="FullScreen" >
+                  <Areas>
+                     <Area area_name="Area1" >
+                        <Display display_name="Display1" >
+                           <Type>
+                                        Trend
+                                    </Type>
+                           <Traces>
+                              <Trace modality="ART" readout="Follow Trace" source="Solar" />
+                              <Trace modality="NBP" readout="Follow Trace" location="Syst" source="Solar" />
+                              <Trace modality="NBP" readout="Follow Trace" location="Dias" source="Solar" />
+                              <Trace modality="T1" readout="Follow Trace" source="Solar" />
+                              <Trace modality="HR" readout="Follow Trace" source="Solar" />
+                              <Trace modality="SpO2" readout="Follow Trace" source="Solar" />
+                           </Traces>
+                        </Display>
+                     </Area>
+                  </Areas>
+               </Screen>
+               <Screen screen_name="CICU 12&lt;br>HR." layout="SplitScreen50" >
+                  <Areas>
+                     <Area area_name="Area1" >
+                        <Display display_name="Display1" >
+                           <Type>
+                                        Readout
+                                    </Type>
+                           <Traces>
+                              <Trace modality="ART" source="Solar" />
+                              <Trace modality="ART" location="Syst" source="Solar" />
+                              <Trace modality="ART" location="Dias" source="Solar" />
+                              <Trace modality="HR" source="Solar" />
+                              <Trace modality="SpO2" source="Solar" />
+                              <Trace modality="RR" source="Solar" />
+                              <Trace modality="RAP" source="Solar" />
+                              <Trace modality="Vacant" />
+                           </Traces>
+                        </Display>
+                     </Area>
+                     <Area area_name="Area2" >
+                        <Display display_name="Display2" >
+                           <Type>
+                                        Video
+                                    </Type>
+                           <Traces>
+                              <Trace modality="VideoIndex" />
+                           </Traces>
+                        </Display>
+                     </Area>
+                  </Areas>
+               </Screen>
+               <Screen screen_name="SDU" layout="FullScreen" >
+                  <Areas>
+                     <Area area_name="Area1" >
+                        <Display display_name="Display1" >
+                           <Type>
+                                        Trend
+                                    </Type>
+                           <Traces>
+                              <Trace modality="NBP" readout="Follow Trace" location="Dias" source="Solar" />
+                              <Trace modality="NBP" readout="Follow Trace" source="Solar" />
+                              <Trace modality="NBP" readout="Follow Trace" location="Syst" source="Solar" />
+                              <Trace modality="HR" readout="Follow Trace" source="Solar" />
+                              <Trace modality="SpO2" readout="Follow Trace" source="Solar" />
+                              <Trace modality="RR" readout="Follow Trace" source="Solar" />
+                           </Traces>
+                        </Display>
+                     </Area>
+                  </Areas>
+               </Screen>
+               <Screen screen_name="CDI" layout="FullScreen" >
+                  <Areas>
+                     <Area area_name="Area1" >
+                        <Display display_name="Display1" >
+                           <Type>
+                                        Trend
+                                    </Type>
+                           <Traces>
+                              <Trace modality="SO2" readout="Follow Trace" source="CDI" />
+                              <Trace modality="Hgb" readout="Follow Trace" source="CDI" />
+                              <Trace modality="Hct" readout="Follow Trace" source="CDI" />
+                              <Trace modality="Vacant" readout="Follow Trace" />
+                           </Traces>
+                        </Display>
+                     </Area>
+                  </Areas>
+               </Screen>
+            </Screens>
+         </Step>
+         <Step step_name="View Report" >
+            <Screens>
+               <Screen screen_name="Overview" layout="NarrowFullScreen" >
+                  <Areas>
+                     <Area area_name="Overview" >
+                        <Display display_name="Overview" >
+                           <Type>
+                                        HTML
+                                    </Type>
+                           <Filename>
+                                        common/Report_Overview.html
+                                    </Filename>
+                        </Display>
+                     </Area>
+                  </Areas>
+               </Screen>
+               <Screen screen_name="Generate Report" layout="ReportScreen" >
+                  <Areas>
+                     <Area area_name="ReportTrends" >
+                        <Display display_name="Report" >
+                           <Type>
+                                        Report
+                                    </Type>
+                           <Traces>
+                              <Trace modality="ART" source="Solar" />
+                              <Trace modality="HR" source="Solar" />
+                              <Trace modality="SpO2" source="Solar" />
+                              <Trace modality="GCS" source="ManualEntry" />
+                           </Traces>
+                        </Display>
+                     </Area>
+                  </Areas>
+               </Screen>
+            </Screens>
+         </Step>
+         <Step modifiable="no" step_name="Stop Monitoring" />
+      </Steps>
+      <ProtocolMeasurements>
+         <Modality value="HR" >
+            <Type value="Numeric" >
+               <Description>Heart Rate</Description>
+               <DefaultColor value="#ff0000" />
+               <Category value="Hemodynamic" />
+               <Units value="bpm" />
+               <VerticalScales default="40,120" >40,120;0,200;0,300</VerticalScales>
+               <AlarmLimits type="std" />
+            </Type>
+         </Modality>
+         <Modality value="RR" >
+            <Type value="Numeric" >
+               <Description>Respiration Rate</Description>
+               <DefaultColor value="#ffff00" />
+               <Category value="Respiratory" />
+               <Units value="BPM" />
+               <VerticalScales default="0,20" >0,20;0,40;0,60;0,100</VerticalScales>
+               <AlarmLimits type="std" />
+            </Type>
+         </Modality>
+         <Modality value="ART" >
+            <Type value="Numeric" >
+               <SecondaryName value="Location" />
+               <Description>Arterial Pressure</Description>
+               <DefaultColor value="#ff7f50" />
+               <Category value="Hemodynamic" />
+               <Units value="mmHg" />
+               <MeasLimits min="NO_LOWER_LIMIT" max="NO_UPPER_LIMIT" />
+            </Type>
+         </Modality>
+         <Modality value="SpO2" >
+            <Type value="Numeric" >
+               <Description>Pulse Oximetry</Description>
+               <DefaultColor value="#ffc080" />
+               <Category value="Respiratory" />
+               <Units value="%" />
+               <VerticalScales default="90,100" >90,100;50,100;0,100</VerticalScales>
+               <AlarmLimits type="std" />
+            </Type>
+         </Modality>
+         <Modality value="GCS" >
+            <Type value="Numeric" >
+               <Description>Glasgow Coma Score</Description>
+               <DefaultColor value="#ffc0cb" />
+               <Category value="Neuro" />
+               <Units value=" " />
+               <VerticalScales default="3,15" >3,15</VerticalScales>
+            </Type>
+         </Modality>
+         <Modality value="Hct" >
+            <Type value="Numeric" >
+               <Description>Hematocrit</Description>
+               <DefaultColor value="#ff0000" />
+               <Category value="Other" />
+               <Units value="%" />
+               <VerticalScales default="30,70" >30,70;10,90</VerticalScales>
+               <AlarmLimits type="std" />
+            </Type>
+         </Modality>
+         <Modality value="NBP" >
+            <Type value="Numeric" >
+               <SecondaryName value="Location" />
+               <Description>Noninvasive Blood Pressure</Description>
+               <DefaultColor value="#ff7f50" />
+               <Category value="Hemodynamic" />
+               <MeasLimits min="NO_LOWER_LIMIT" max="NO_UPPER_LIMIT" />
+            </Type>
+         </Modality>
+         <Modality value="T1" >
+            <Type value="Numeric" >
+               <Description>Temperature 1</Description>
+               <DefaultColor value="#ee82ee" />
+               <Category value="Temperature" />
+               <Units value="Celsius" />
+               <VerticalScales default="35,45" >35,45;25,45;15,45</VerticalScales>
+               <AlarmLimits type="std" />
+            </Type>
+         </Modality>
+         <Modality value="RAP" >
+            <Type value="Numeric" >
+               <SecondaryName value="Location" />
+               <Description>Right Atrial Pressure</Description>
+               <DefaultColor value="#ff7f50" />
+               <Category value="Hemodynamic" />
+               <Units value="mmHg" />
+               <VerticalScales default="-10,20" >-5,10;-10,20;-10,60</VerticalScales>
+               <AlarmLimits type="std" />
+            </Type>
+         </Modality>
+         <Modality value="SO2" >
+            <Type value="Numeric" >
+               <Description>Saturation of Oxygen</Description>
+               <DefaultColor value="#ffc080" />
+               <Category value="Respiratory" />
+               <Units value="%" />
+               <VerticalScales default="40,100" >40,100;0,100</VerticalScales>
+               <AlarmLimits type="std" />
+            </Type>
+         </Modality>
+         <Modality value="Hgb" >
+            <Type value="Numeric" >
+               <Description>Hemoglobin</Description>
+               <DefaultColor value="#ff0000" />
+               <Category value="Other" />
+               <Units value="g/dl" />
+               <VerticalScales default="0,30" >10,20;0,30</VerticalScales>
+               <AlarmLimits type="std" />
+            </Type>
+         </Modality>
+      </ProtocolMeasurements>
+   </workingProtocol>

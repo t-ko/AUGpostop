@@ -1,0 +1,27 @@
+studyID,AUG091_011615,AUG091_011615,AUG091_011615,AUG091_011615,AUG091_011615,AUG091_011615,AUG091_011615
+patdate,20150116,20150116,20150117,20150118,20150119,20150120,20150121
+abs_analysisID,absolutes,absolutes_011615,absolutes_011715,absolutes_011815,absolutes_011915,absolutes_012015,absolutes_012115
+cal_ind,,,,,,,
+check_ind,,,,,,,
+left_ind,,,,,,,
+right_ind,,,,,,,
+left_parietal_ind,,,,,,,
+right_parietal_ind,,,,,,,
+BFI_prefix,BFI_1,BFI_7,BFI_011715,BFI_011815,BFI_011915,BFI_012015,BFI_012115
+BFI_analysisID,BFI_1_abs_fitavg,BFI_011615abs_fitavg,BFI_011715abs_fitavg,BFI_011815abs_fitavg,BFI_011915abs_fitavg,BFI_012015abs_fitavg,BFI_012115abs_fitavg
+usedflowdets,6 7 8,6 7 8,6 7 8,5 6 7 8,5 6 7 8,5 6 7 8,6 7 8
+left_marks,4 5,1 2,1 2,1 2,3 4,3 4,3 4
+right_marks,2 3,3 4,3 4,3 4,1 2,1 2,1 2
+left_parietal_marks,,,,,,,
+right_parietal_marks,,,,,,,
+abs_probe_pos_left,,top,bottom,top,bottom,bottom,
+abs_probe_pos_right,,bottom,bottom,,bottom,bottom,
+abs_probe_pos_left_parietal,,,,,,,
+abs_probe_pos_right_parietal,,,,,,,
+BFI_probe_post_left,,top,bottom,bottom,bottom,bottom,
+BFI_probe_post_right,,bottom,bottom,bottom,bottom,bottom,
+BFI_probe_post_left_parietal,,,,,,,
+BFI_probe_post_right_parietal,,,,,,,
+abs_probe,custom1,custom1,custom1,custom1,custom1,custom1,custom1
+dcs_probe,custom1,custom1,custom1,custom1,custom1,custom1,custom1
+comments,,,,recently extubated at 12:00pm; ABGs taken at 12:30pm; held by nurse during measurement,crying during right DOS; squirming movement during right BFI,,

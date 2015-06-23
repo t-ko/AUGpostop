@@ -1,0 +1,3 @@
+Mark	Timestamp	Sync Time	Frame	Event	Comments
+1	02-08-2015 11:39:37.504	3506258377.504989	3	left start ACQ	
+2	02-08-2015 11:40:13.486	3506258413.486047	10	left end ACQ	-

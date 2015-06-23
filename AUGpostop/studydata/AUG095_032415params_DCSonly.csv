@@ -1,0 +1,24 @@
+studyID,AUG095_032415,AUG095_032415,AUG095_032415,AUG095_032415,AUG095_032415,AUG095_032415,AUG095_032415
+patdate,20150324,20150324,20150325,20150326,20150327,20150328,20150329
+abs_analysisID,absolutes,absolutes_032415,absolutes_032515,absolutes_032615,absolutes_032715,absolutes_032815,absolutes_032915
+cal_ind,,1 3 5,1 3 5,1 3 5,1 3 5,1 3 5,1 3 5
+check_ind,,2 4 6,2 4 6,2 4 6,2 4 6,2 4 6,2 4 6
+left_ind,,7 8 9 10 11,11 12 13 14,12 13 14 15 16,11 12 13 14,7 8 9 10,11 12 13 14 15
+right_ind,,12 13 14 15,7 8 9 10,7 8 9 10 11,7 8 9 10,11 12 13 14 15,7 8 9 10
+left_parietal_ind,,,,,,,
+right_parietal_ind,,,,,,,
+BFI_prefix,BFI_1,BFI_6,BFI_032515,BFI_032615,BFI_032715,BFI_032815,BFI_032915
+BFI_analysisID,BFI_1_abs_fitavg,BFI_032415abs_fitavg,BFI_032515abs_fitavg,BFI_032615abs_fitavg,BFI_032715abs_fitavg,BFI_032815abs_fitavg,BFI_032915abs_fitavg
+usedflowdets,6 7 8,4 5 6 7 8,4 5 6 7 8,4 5 6 7 8,4 5 6 7 8,4 5 6 7 8,4 5 6 7 8
+left_marks,3 4,3 4,1 2,1 2,1 2,5 6,1 2
+right_marks,1 2,1 2,3 4,3 4,3 4,3 4,3 4
+left_parietal_marks,,,,,,,
+right_parietal_marks,,,,,,,
+abs_probe_pos_left,,top,bottom,top,top,top,top
+abs_probe_pos_right,,top,top,bottom,top,top,bottom
+abs_probe_pos_left_parietal,,,,,,,
+abs_probe_pos_right_parietal,,,,,,,
+BFI_probe_post_left,,top,top,top,top,top,top
+BFI_probe_post_right,,top,bottom,top,top,top,
+BFI_probe_post_left_parietal,,,,,,,
+BFI_probe_post_right_parietal,,,,,,,
