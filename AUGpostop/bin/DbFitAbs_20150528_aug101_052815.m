@@ -70,7 +70,7 @@ snum=1;
 measnumtmp=0;
 measnumtmp1=0;
 for e=1:length(exten)
-    fdir1 = ['../' studyID '/'];
+    fdir1 = ['..' filesep studyID filesep];
     fname1 = [ prefix '_' ];
     if ~isempty(exten{e})
         fname1 = [ fname1 char(exten(e)) '_'];
@@ -199,8 +199,8 @@ end
     grid on
     set(gca,'FontSize',20)
     set(gcf,'PaperPositionMode','Auto')
-    saveas(gcf,['../' studyID '/savedfigs/Intensity_' studyID '_S' num2str(s) '_' analysisID '.fig'],'fig')
-    saveas(gcf,['../' studyID '/savedfigs/Intensity_' studyID '_S' num2str(s) '_' analysisID '.jpg'],'jpg')
+    saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'Intensity_' studyID '_S' num2str(s) '_' analysisID '.fig'],'fig')
+    saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'Intensity_' studyID '_S' num2str(s) '_' analysisID '.jpg'],'jpg')
 
     mua=muao+zeros(1,size(intensitydata,1));
     musp=muspo+zeros(1,size(intensitydata,1));;%select scattering at wavelength closest to 785 (TK 2014-08)
@@ -215,17 +215,17 @@ end
             ext='';
             fname1=[ studyID '_' absID ext '_baselines.mat'];
             load(fname1);
-            fdir=['..\' studyID '\' absID '\'];
+            fdir=['..' filesep studyID filesep absID filesep];
             files=dir([ fdir 'Data_*.txt']);
             fname=files(1).name(6:end-4);
             if length(fname)>13
-                DateVector(RR,:) = datevec([fname(5:6) '/' fname(7:8) '/' fname(1:4) ' ' fname(end-5:end-4) ':' fname(end-3:end-2) ':' fname(end-1:end)]);
+                DateVector(RR,:) = datevec([fname(5:6) '' filesep fname(7:8) '' filesep fname(1:4) ' ' fname(end-5:end-4) ':' fname(end-3:end-2) ':' fname(end-1:end)]);
             else
-                DateVector(RR,:) = datevec([fname(1:2) '/' fname(3:4) '/' fname(5:6) ' ' fname(end-5:end-4) ':' fname(end-3:end-2) ':' fname(end-1:end)]);
+                DateVector(RR,:) = datevec([fname(1:2) '' filesep fname(3:4) '' filesep fname(5:6) ' ' fname(end-5:end-4) ':' fname(end-3:end-2) ':' fname(end-1:end)]);
             end
             analysis_date(RR) = datenum([DateVector(RR,1:3) 0 0 0]);
         end      
-        
+        % Search regionlabels for region information, forehead/parietal
         for rn = 1:length(regionmarks)
             rmarks = Marksflow(regionmarks{rn});
             if ~isempty(findstr(regionlabels{rn},'eft')) && ~isempty(findstr(regionlabels{rn},'orehead'))
@@ -394,8 +394,8 @@ end
             text(5e-7,1.1,['\beta=' num2str(setbeta,'%6.2f') ],'FontSize',16 )
             text(5e-7,1.2,['Db=' num2str(squeeze(betaDbfitavg(1,measnum+1)),'%6.2e') ],'FontSize',16 )             
             
-            saveas(gcf,['../' studyID '/savedfigs/corrsavg_' studyID '_S' num2str(s) '_' analysisID '_' regionlabels{RR} '.fig'],'fig')
-            saveas(gcf,['../' studyID '/savedfigs/corrsavg_' studyID '_S' num2str(s) '_' analysisID '_' regionlabels{RR} '.jpg'],'jpg')
+            saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'corrsavg_' studyID '_S' num2str(s) '_' analysisID '_' regionlabels{RR} '.fig'],'fig')
+            saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'corrsavg_' studyID '_S' num2str(s) '_' analysisID '_' regionlabels{RR} '.jpg'],'jpg')
 
             
             numframestoavg=1;
@@ -445,8 +445,8 @@ end
                         xlim([0 10^-3])
                         ylim([0 1.1])
                         set(gca, 'FontSize', 16)
-                        saveas(gcf,['../' studyID '/savedfigs/fit_' studyID '_S' num2str(s) '_' analysisID '_f' num2str(measnum+1) '.fig'],'fig')
-                        saveas(gcf,['../' studyID '/savedfigs/fit_' studyID '_S' num2str(s) '_' analysisID '_f' num2str(measnum+1) '.jpg'],'jpg')
+                        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'fit_' studyID '_S' num2str(s) '_' analysisID '_f' num2str(measnum+1) '.fig'],'fig')
+                        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'fit_' studyID '_S' num2str(s) '_' analysisID '_f' num2str(measnum+1) '.jpg'],'jpg')
 
                     else
                         indtmp(measnum+1)=NaN;
@@ -517,8 +517,8 @@ end
                 text(5e-7,1.1,['\beta=' num2str(setbeta,'%6.2f') ],'FontSize',16 )
                 text(5e-7,1.2,['Db=' num2str(squeeze(betaDbfit(1,measnum+1,i)),'%6.2e') ],'FontSize',16 )             
             
-                saveas(gcf,['../' studyID '/savedfigs/corrs_' studyID '_S' num2str(s) '_' analysisID '_' regionlabels{RR} '_det' num2str(i) '.fig'],'fig')
-                saveas(gcf,['../' studyID '/savedfigs/corrs_' studyID '_S' num2str(s) '_' analysisID '_' regionlabels{RR} '_det' num2str(i) '.jpg'],'jpg')            
+                saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'corrs_' studyID '_S' num2str(s) '_' analysisID '_' regionlabels{RR} '_det' num2str(i) '.fig'],'fig')
+                saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'corrs_' studyID '_S' num2str(s) '_' analysisID '_' regionlabels{RR} '_det' num2str(i) '.jpg'],'jpg')            
                 
                 numframestoavg = 1;
                   
@@ -562,8 +562,8 @@ end
                         xlim([0 10^-3])
                         ylim([0 1.1])
                         set(gca, 'FontSize', 16)
-                        saveas(gcf,['../' studyID '/savedfigs/fit_' studyID '_S' num2str(s) '_' analysisID '_det' num2str(i) '_f' num2str(measnum+1) '.fig'],'fig')
-                        saveas(gcf,['../' studyID '/savedfigs/fit_' studyID '_S' num2str(s) '_' analysisID '_det' num2str(i) '_f' num2str(measnum+1) '.jpg'],'jpg')
+                        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'fit_' studyID '_S' num2str(s) '_' analysisID '_det' num2str(i) '_f' num2str(measnum+1) '.fig'],'fig')
+                        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'fit_' studyID '_S' num2str(s) '_' analysisID '_det' num2str(i) '_f' num2str(measnum+1) '.jpg'],'jpg')
 
 
                     else
@@ -627,11 +627,11 @@ if ~fitavg
         set(gcf,'PaperPositionMode','Auto')
         maxwindows(gcf)
         if fitbeta==0
-            saveas(gcf,['../' studyID '/savedfigs/DbFit_' studyID '_S' num2str(s) '_' analysisID '_CH' num2str(i) '_fixbeta.fig'],'fig')
-            saveas(gcf,['../' studyID '/savedfigs/DbFit_' studyID '_S' num2str(s) '_' analysisID '_CH' num2str(i) '_fixbeta.jpg'],'jpg')
+            saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFit_' studyID '_S' num2str(s) '_' analysisID '_CH' num2str(i) '_fixbeta.fig'],'fig')
+            saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFit_' studyID '_S' num2str(s) '_' analysisID '_CH' num2str(i) '_fixbeta.jpg'],'jpg')
         else
-            saveas(gcf,['../' studyID '/savedfigs/DbFit_' studyID '_S' num2str(s) '_' analysisID '_CH' num2str(i) '_fitbeta.fig'],'fig')
-            saveas(gcf,['../' studyID '/savedfigs/DbFit_' studyID '_S' num2str(s) '_' analysisID '_CH' num2str(i) '_fitbeta.jpg'],'jpg')
+            saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFit_' studyID '_S' num2str(s) '_' analysisID '_CH' num2str(i) '_fitbeta.fig'],'fig')
+            saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFit_' studyID '_S' num2str(s) '_' analysisID '_CH' num2str(i) '_fitbeta.jpg'],'jpg')
         end
     end
 
@@ -693,8 +693,8 @@ else
         axis tight
 
         Dbfitavg  = Dbfitavgtemp;
-        saveas(gcf,['../' studyID '/savedfigs/errorinfit_avg_' studyID '_S' num2str(s) '_' analysisID '.fig'],'fig')
-        saveas(gcf,['../' studyID '/savedfigs/errorinfit_avg_' studyID '_S' num2str(s) '_' analysisID '.jpg'],'jpg')
+        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'errorinfit_avg_' studyID '_S' num2str(s) '_' analysisID '.fig'],'fig')
+        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'errorinfit_avg_' studyID '_S' num2str(s) '_' analysisID '.jpg'],'jpg')
 
 
     %Final plot of Dbfit
@@ -713,12 +713,12 @@ else
     set(gcf,'PaperPositionMode','Auto')
     if fitbeta==0
         
-        saveas(gcf,['../' studyID '/savedfigs/DbFitavg_' studyID '_S' num2str(s) '_' analysisID '_fixbeta.fig'],'fig')
-        saveas(gcf,['../' studyID '/savedfigs/DbFitavg_' studyID '_S' num2str(s) '_' analysisID '_fixbeta.jpg'],'jpg')
+        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitavg_' studyID '_S' num2str(s) '_' analysisID '_fixbeta.fig'],'fig')
+        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitavg_' studyID '_S' num2str(s) '_' analysisID '_fixbeta.jpg'],'jpg')
         
     else
-        saveas(gcf,['../' studyID '/savedfigs/DbFitavg_' studyID '_S' num2str(s) '_' analysisID '_fitbeta.fig'],'fig')
-        saveas(gcf,['../' studyID '/savedfigs/DbFitavg_' studyID '_S' num2str(s) '_' analysisID '_fitbeta.jpg'],'jpg')
+        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitavg_' studyID '_S' num2str(s) '_' analysisID '_fitbeta.fig'],'fig')
+        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitavg_' studyID '_S' num2str(s) '_' analysisID '_fitbeta.jpg'],'jpg')
     end
     muao=mua;
     ff=['save ' studyID '_S' num2str(s) '_' analysisID '_flow_output_fitavg.mat timeaxis_flow muao muspo taus Dbfitavg Curvefitavg Curvefitg2avg corrsavg g1avg intensityavg Marksflow numframestoavg fvalavg exitflagavg Betasaveavg usedflowdets fitbeta fitavg startcorr datalength avgnum cutoff prefix regionmarks regionlabels'];
@@ -739,12 +739,12 @@ if fitbeta==1
     set(gca,'FontSize',20)
     set(gcf,'PaperPositionMode','Auto')
     if fitbeta==1 & fitavg==0
-        saveas(gcf,['../' studyID '/savedfigs/Beta_' studyID '_S' num2str(s) '_' analysisID '.fig'],'fig')
-        saveas(gcf,['../' studyID '/savedfigs/Beta_' studyID '_S' num2str(s) '_' analysisID '.jpg'],'jpg')
+        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'Beta_' studyID '_S' num2str(s) '_' analysisID '.fig'],'fig')
+        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'Beta_' studyID '_S' num2str(s) '_' analysisID '.jpg'],'jpg')
 
     elseif fitbeta==1 & fitavg==1
-        saveas(gcf,['../' studyID '/savedfigs/Betaavg_' studyID '_S' num2str(s) '_' analysisID '.fig'],'fig')
-        saveas(gcf,['../' studyID '/savedfigs/Betaavg_' studyID '_S' num2str(s) '_' analysisID '.jpg'],'jpg')
+        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'Betaavg_' studyID '_S' num2str(s) '_' analysisID '.fig'],'fig')
+        saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'Betaavg_' studyID '_S' num2str(s) '_' analysisID '.jpg'],'jpg')
 
     end
 end

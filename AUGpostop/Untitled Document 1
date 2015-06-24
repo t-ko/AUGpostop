@@ -1,0 +1,4 @@
+IDs={'AUG089_120514','AUG090_121514','AUG091_011615','AUG092_012615','AUG093_020615','AUG094_021815','AUG095_032415','AUG096_041315','AUG097_041315'};
+for i = 1:length(IDs)
+cmd{i} = AUG_readparams_betaoptimize(sprintf(['..' filesep filesep 'studydata' filesep filesep '%sparams_DCSonly.csv'],IDs{i}))
+end
