@@ -35,7 +35,7 @@ load('colors.mat');
 t_postop = [];
 for p = 1:length(prefixes)
     prefix = prefixes{p};
-    fdir1 = ['../' studyID '/'];
+    fdir1 = ['..' filesep studyID '' filesep];
     fname1 = [ prefix '_' ];
     fname=[fdir1 fname1 'flow_' sprintf('%01d',0) '.dat'];
     fid = fopen([ fname ], 'r');
@@ -52,18 +52,18 @@ for idn = 1:length(idmatch)
         break
     end
 end
-if isnan(DateofSurgery(idn))
-    DateofSurgery(idn) = [DateVector(1,1:3) 0 0 0];
+if isnan(DateofSurgery(idn)) || (sum(datevec(DateofSurgery(idn))<([2014 0 0 0 0 0]))>0)
+    DateofSurgery(idn) = datenum([DateVector(1,1:3) 0 0 0]);
 end
 if isnan(AnesthesiaRecordTimeoffXClamp(idn))
-    AnesthesiaRecordTimeoffXClamp(idn) = datenum([0 0 0 12 0 0]);
+    AnesthesiaRecordTimeoffXClamp(idn) = datenum([0 0 0 DateVector(1,4)-1 DateVector(1,5:6)]);
 end
 
 SurgeryVector = datevec(DateofSurgery(idn))+datevec(AnesthesiaRecordTimeoffXClamp(idn));
 
 t_postop = [];
 for p = 1:length(prefixes)
-    t_postop(p) = datenum(DateVector(p,:)-(SurgeryVector)); %days since surgery
+    t_postop(p) = datenum(DateVector(p,:))-datenum((SurgeryVector)); %days since surgery
 end
 %%%%%
 
@@ -151,9 +151,9 @@ grid on
 set(f,'PaperPositionMode','Auto')
 maxwindows(f);
 if savefigures
-    saveas(gcf,['../' studyID '/savedfigs/DbFitAbs_' studyID '_' plotID '_regionflow_BFI.fig'],'fig')
-    saveas(gcf,['../' studyID '/savedfigs/DbFitAbs_' studyID '_' plotID '_regionflow_BFI.eps'],'epsc2')
-    saveas(gcf,['../' studyID '/savedfigs/DbFitAbs_' studyID '_' plotID '_regionflow_BFI.png'],'png')
+    saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitAbs_' studyID '_' plotID '_regionflow_BFI.fig'],'fig')
+    saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitAbs_' studyID '_' plotID '_regionflow_BFI.eps'],'epsc2')
+    saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitAbs_' studyID '_' plotID '_regionflow_BFI.png'],'png')
 end
 
 % Process average bilateral trend
@@ -181,9 +181,9 @@ grid on
 set(f,'PaperPositionMode','Auto')
 maxwindows(f);
 if savefigures
-    saveas(gcf,['../' studyID '/savedfigs/DbFitAbs_' studyID '_' plotID '_globalflow_BFI.fig'],'fig')
-    saveas(gcf,['../' studyID '/savedfigs/DbFitAbs_' studyID '_' plotID '_globalflow_BFI.eps'],'epsc2')
-    saveas(gcf,['../' studyID '/savedfigs/DbFitAbs_' studyID '_' plotID '_globalflow_BFI.png'],'png')
+    saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitAbs_' studyID '_' plotID '_globalflow_BFI.fig'],'fig')
+    saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitAbs_' studyID '_' plotID '_globalflow_BFI.eps'],'epsc2')
+    saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitAbs_' studyID '_' plotID '_globalflow_BFI.png'],'png')
 end
 
 f=figure(5);
@@ -202,9 +202,9 @@ grid on
 set(f,'PaperPositionMode','Auto')
 maxwindows(f);
 if savefigures
-    saveas(gcf,['../' studyID '/savedfigs/DbFitAbs_' studyID '_' plotID '_globalflow_BFI.fig'],'fig')
-    saveas(gcf,['../' studyID '/savedfigs/DbFitAbs_' studyID '_' plotID '_globalflow_BFI.eps'],'epsc2')
-    saveas(gcf,['../' studyID '/savedfigs/DbFitAbs_' studyID '_' plotID '_globalflow_BFI.png'],'png')
+    saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitAbs_' studyID '_' plotID '_globalflow_BFI.fig'],'fig')
+    saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitAbs_' studyID '_' plotID '_globalflow_BFI.eps'],'epsc2')
+    saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitAbs_' studyID '_' plotID '_globalflow_BFI.png'],'png')
 end
 
 %%%%%%%%%%

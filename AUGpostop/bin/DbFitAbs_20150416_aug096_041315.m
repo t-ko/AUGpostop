@@ -225,7 +225,7 @@ end
             end
             analysis_date(RR) = datenum([DateVector(RR,1:3) 0 0 0]);
         end      
-        
+        % Search regionlabels for region information, forehead/parietal
         for rn = 1:length(regionmarks)
             rmarks = Marksflow(regionmarks{rn});
             if ~isempty(findstr(regionlabels{rn},'eft')) && ~isempty(findstr(regionlabels{rn},'orehead'))

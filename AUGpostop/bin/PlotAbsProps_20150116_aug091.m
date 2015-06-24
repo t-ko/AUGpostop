@@ -4,7 +4,7 @@ close all
 clear all
 
 studyID = 'AUG091_011615';
-analysisIDs={'absolutes';'absolutes_011615';'absolutes_011715';'absolutes_011815';'absolutes_011915';'absolutes_012015';'absolutes_012115!'}; %R1, R2, R3
+analysisIDs={'absolutes';'absolutes_011615';'absolutes_011715';'absolutes_011815';'absolutes_011915';'absolutes_012015';'absolutes_012115'}; %R1, R2, R3
 plotID='absprops';
 
 StO2left = NaN(1,length(analysisIDs));
@@ -61,7 +61,7 @@ HbO2leftparietal_std = NaN(1,length(analysisIDs));
 HbO2rightparietal = NaN(1,length(analysisIDs));
 HbO2rightparietal_std = NaN(1,length(analysisIDs));
 
-savefigures=0;
+savefigures=1;
 load('colors.mat');
 
 for R = 1:length(analysisIDs)
@@ -70,7 +70,7 @@ for R = 1:length(analysisIDs)
     fname1=[ studyID '_' analysisID ext '_baselines.mat'];
     load(fname1); 
 
-    fdir=['..\' studyID '\' analysisID '\'];
+    fdir=['..' filesep '' studyID filesep analysisID filesep];
     files=dir([ fdir 'Data_*.txt']);
     fname=files(1).name(6:end-4);
     if length(fname)>13
@@ -88,13 +88,13 @@ for R = 1:length(analysisIDs)
         Hbleft_std(R) = nanstd(Hb_left);
         HbO2left(R) = nanmean(HbO2_left);
         HbO2left_std(R) = nanstd(HbO2_left);
-        temp = nanmean(leftmusp);
+        temp = nanmean(leftmusp,1);
         muspleft(R) = temp(2); %785nm
-        temp = nanstd(leftmusp);
+        temp = nanstd(leftmusp,1);
         muspleft_std(R) = temp(2);
-        temp = nanmean(leftmua);
+        temp = nanmean(leftmua,1);
         mualeft(R) = temp(2); %785nm
-        temp = nanstd(leftmua);
+        temp = nanstd(leftmua,1);
         mualeft_std(R) = temp(2);
         
     end
@@ -117,13 +117,13 @@ for R = 1:length(analysisIDs)
         Hbright_std(R) = nanstd(Hb_right);
         HbO2right(R) = nanmean(HbO2_right);
         HbO2right_std(R) = nanstd(HbO2_right);
-        temp = nanmean(rightmusp);
+        temp = nanmean(rightmusp,1);
         muspright(R) = temp(2);
-        temp = nanstd(rightmusp);
+        temp = nanstd(rightmusp,1);
         muspright_std(R) = temp(2);
-        temp = nanmean(rightmua);
+        temp = nanmean(rightmua,1);
         muaright(R) = temp(2);
-        temp = nanstd(rightmua);
+        temp = nanstd(rightmua,1);
         muaright_std(R) = temp(2);
     end
     if exist('StO2_rightparietal','var') 
@@ -150,18 +150,18 @@ for idn = 1:length(idmatch)
         break
     end
 end
-if isnan(DateofSurgery(idn))
-    DateofSurgery(idn) = [DateVector(1,1:3) 0 0 0];
+if isnan(DateofSurgery(idn)) || (sum(datevec(DateofSurgery(idn))<([2014 0 0 0 0 0]))>0)
+    DateofSurgery(idn) = datenum([DateVector(1,1:3) 0 0 0]);
 end
 if isnan(AnesthesiaRecordTimeoffXClamp(idn))
-    AnesthesiaRecordTimeoffXClamp(idn) = datenum([0 0 0 12 0 0]);
+    AnesthesiaRecordTimeoffXClamp(idn) = datenum([0 0 0 DateVector(1,4)-1 DateVector(1,5:6)]);
 end
 
 SurgeryVector = datevec(DateofSurgery(idn))+datevec(AnesthesiaRecordTimeoffXClamp(idn));
 
 t_postop = [];
 for p = 1:length(analysisIDs)
-    t_postop(p) = datenum(DateVector(p,:)-(SurgeryVector)); %days since surgery
+    t_postop(p) = datenum(DateVector(p,:))-datenum((SurgeryVector)); %days since surgery
 end
 %%%%%
 
