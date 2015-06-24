@@ -52,11 +52,11 @@ for idn = 1:length(idmatch)
         break
     end
 end
-if isnan(DateofSurgery(idn))
-    DateofSurgery(idn) = [DateVector(1,1:3) 0 0 0];
+if isnan(DateofSurgery(idn)) || (sum(datevec(DateofSurgery(idn))<([2014 0 0 0 0 0]))>0)
+    DateofSurgery(idn) = datenum([DateVector(1,1:3) 0 0 0]);
 end
 if isnan(AnesthesiaRecordTimeoffXClamp(idn))
-    AnesthesiaRecordTimeoffXClamp(idn) = datenum([0 0 0 12 0 0]);
+    AnesthesiaRecordTimeoffXClamp(idn) = datenum([0 0 0 DateVector(1,4)-1 DateVector(1,5:6)]);
 end
 
 SurgeryVector = datevec(DateofSurgery(idn))+datevec(AnesthesiaRecordTimeoffXClamp(idn));

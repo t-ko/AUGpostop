@@ -3,7 +3,7 @@
 close all
 clear all
 
-ALLstudyIDs={'aug068_parietal';'poa038_parietal';'AUG092_012615';'AUG093_020615';'AUG094_021815';'AUG095_032415';'AUG096_041315';'AUG097_041315';'AUG098_042115';'AUG099_042415';'AUG100_051415';'AUG101_052815';'AUG102_061015'};
+ALLstudyIDs={'AUG092_012615';'AUG093_020615';'AUG094_021815';'AUG095_032415';'AUG096_041315';'AUG097_041315';'AUG098_042115';'AUG099_042415';'AUG100_051415';'AUG101_052815';'AUG102_061015'};
 plotID_flow='BFIabs_fitavg';
 plotID_oxy='absprops';
 regionlabels = {'Right_Parietal','Right_Forehead','Left_Forehead','Left_Parietal'};
@@ -112,6 +112,13 @@ set(bp(:,:),'linewidth',4);
 ylabel('dStO_2 (%)','FontSize',25)
 set(gca,'FontSize',25)
 set(findobj(gca,'Type','text'),'FontSize',25)
+f2=figure(2);
+subplot(1,3,1);
+bp = boxplot(table2array(regional_StO2),'labels',{'Rp','R','L','Lp'});
+set(bp(:,:),'linewidth',4);
+ylabel('StO_2 (%)','FontSize',25)
+set(gca,'FontSize',25)
+set(findobj(gca,'Type','text'),'FontSize',25)
 
 regional_THC=array2table([ALL_THCrightparietal(ind_THC); ...
 ALL_THCright(ind_THC); ...
@@ -133,9 +140,17 @@ for col = 1:size(regional_dTHC,2)
 end
 reg_avg_dTHC = nanmean(regional_dTHC,1);
 reg_avg_dTHC_std = sqrt(nansum(regional_dTHC_std.^2));
+f=figure(1);
 subplot(1,3,2);
 bp = boxplot(regional_dTHC,'labels',{'Rp','R','L','Lp'});
 ylabel(texlabel('dTHC ({mu}mol/L)'),'FontSize',25)
+set(bp(:,:),'linewidth',4);
+set(gca,'FontSize',25)
+set(findobj(gca,'Type','text'),'FontSize',25)
+f2=figure(2);
+subplot(1,3,2);
+bp = boxplot(table2array(regional_THC),'labels',{'Rp','R','L','Lp'});
+ylabel(texlabel('THC ({mu}mol/L)'),'FontSize',25)
 set(bp(:,:),'linewidth',4);
 set(gca,'FontSize',25)
 set(findobj(gca,'Type','text'),'FontSize',25)
@@ -160,12 +175,20 @@ for col = 1:size(regional_rBFI,2)
 end
 reg_avg_rBFI = nanmean(regional_rBFI,1);
 reg_avg_rBFI_std = sqrt(nansum(regional_rBFI_std.^2));
+f=figure(1);
 subplot(1,3,3);
 bp = boxplot(regional_rBFI,'labels',{'Rp','R','L','Lp'});
 set(bp(:,:),'linewidth',4);
 set(gca,'FontSize',25)
 set(findobj(gca,'Type','text'),'FontSize',25)
 ylabel('rBFI (%)','FontSize',25)
+f2=figure(2);
+subplot(1,3,3);
+bp = boxplot(table2array(regional_BFI),'labels',{'Rp','R','L','Lp'});
+set(bp(:,:),'linewidth',4);
+set(gca,'FontSize',25)
+set(findobj(gca,'Type','text'),'FontSize',25)
+ylabel('BFI (cm^2/s)','FontSize',25)
 
 
 %% REGIONAL ANALYSIS
@@ -269,9 +292,16 @@ ylabel('rBFI (%)','FontSize',25)
 % end
 set(f,'PaperPositionMode','Auto')
 maxwindows(f);
-fn = 1;
 if savefigures
-    saveas(gcf,['savedfigs/RegAbsProps_' studyID '_' plotID_oxy '_plot' num2str(fn) '.fig'],'fig')
-    saveas(gcf,['savedfigs/RegAbsProps_' studyID '_' plotID_oxy '_plot' num2str(fn) '.eps'],'epsc2')
-    saveas(gcf,['savedfigs/RegAbsProps_' studyID '_' plotID_oxy '_plot' num2str(fn) '.png'],'png')
+    saveas(gcf,['savedfigs/RegRelProps_' studyID '_' plotID_oxy '.fig'],'fig')
+    saveas(gcf,['savedfigs/RegRelProps_' studyID '_' plotID_oxy '.eps'],'epsc2')
+    saveas(gcf,['savedfigs/RegRelProps_' studyID '_' plotID_oxy '.png'],'png')
+end
+
+set(f2,'PaperPositionMode','Auto')
+maxwindows(f2);
+if savefigures
+    saveas(gcf,['savedfigs/RegAbsProps_' studyID '_' plotID_oxy '.fig'],'fig')
+    saveas(gcf,['savedfigs/RegAbsProps_' studyID '_' plotID_oxy '.eps'],'epsc2')
+    saveas(gcf,['savedfigs/RegAbsProps_' studyID '_' plotID_oxy '.png'],'png')
 end

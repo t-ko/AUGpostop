@@ -70,7 +70,7 @@ for R = 1:length(analysisIDs)
     fname1=[ studyID '_' analysisID ext '_baselines.mat'];
     load(fname1); 
 
-    fdir=['..\' studyID '\' analysisID '\'];
+    fdir=['..' filesep '' studyID filesep analysisID filesep];
     files=dir([ fdir 'Data_*.txt']);
     fname=files(1).name(6:end-4);
     if length(fname)>13
@@ -150,18 +150,18 @@ for idn = 1:length(idmatch)
         break
     end
 end
-if isnan(DateofSurgery(idn))
-    DateofSurgery(idn) = [DateVector(1,1:3) 0 0 0];
+if isnan(DateofSurgery(idn)) || (sum(datevec(DateofSurgery(idn))<([2014 0 0 0 0 0]))>0)
+    DateofSurgery(idn) = datenum([DateVector(1,1:3) 0 0 0]);
 end
 if isnan(AnesthesiaRecordTimeoffXClamp(idn))
-    AnesthesiaRecordTimeoffXClamp(idn) = datenum([0 0 0 12 0 0]);
+    AnesthesiaRecordTimeoffXClamp(idn) = datenum([0 0 0 DateVector(1,4)-1 DateVector(1,5:6)]);
 end
 
 SurgeryVector = datevec(DateofSurgery(idn))+datevec(AnesthesiaRecordTimeoffXClamp(idn));
 
 t_postop = [];
 for p = 1:length(analysisIDs)
-    t_postop(p) = datenum(DateVector(p,:)-(SurgeryVector)); %days since surgery
+    t_postop(p) = datenum(DateVector(p,:))-datenum((SurgeryVector)); %days since surgery
 end
 %%%%%
 

@@ -111,11 +111,11 @@ for sID = 1:length(ALLstudyIDs)
     R = (1:length(analysisIDs))-1;  
     
     figure(1); hold on
-    plot(R,BFIleft,'-o','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
-    plot(R,BFIright,'-x','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
-    plot(R,BFIleftparietal,'-+','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
-    plot(R,BFIrightparietal,'-*','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
-    xlim(xrange);
+%     plot(R,BFIleft,'-o','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
+%     plot(R,BFIright,'-x','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
+%     plot(R,BFIleftparietal,'-+','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
+%     plot(R,BFIrightparietal,'-*','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
+%     xlim(xrange);
     
     tempdata = strsplit(studyID,'_'); 
     idmatch = regexpi(StudyID,upper(tempdata{1}));
@@ -170,9 +170,9 @@ for fn = 1:2
     set(f,'PaperPositionMode','Auto')
     maxwindows(f);
     if savefigures
-        saveas(gcf,['savedfigs/Abs_' studyID '_' plotID_oxy '_plot' num2str(fn) '.fig'],'fig')
-        saveas(gcf,['savedfigs/Abs_' studyID '_' plotID_oxy '_plot' num2str(fn) '.eps'],'epsc2')
-        saveas(gcf,['savedfigs/Abs_' studyID '_' plotID_oxy '_plot' num2str(fn) '.png'],'png')
+        saveas(gcf,['savedfigs' filesep 'Abs_' studyID '_' plotID_oxy '_plot' num2str(fn) '.fig'],'fig')
+        saveas(gcf,['savedfigs' filesep 'Abs_' studyID '_' plotID_oxy '_plot' num2str(fn) '.eps'],'epsc2')
+        saveas(gcf,['savedfigs' filesep 'Abs_' studyID '_' plotID_oxy '_plot' num2str(fn) '.png'],'png')
     end
 end
 
