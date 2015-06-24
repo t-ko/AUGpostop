@@ -128,7 +128,7 @@ for sID = 1:length(ALLstudyIDs)
 
     figure(1); hold on
     ylabel('StO_2 (%)','FontSize',25)
-    errorbar(R_oxy,StO2forehead,StO2forehead_std,'-o','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
+    shadedErrorBar(R_oxy,StO2forehead,StO2forehead_std,{'-o','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:)},0.5)
 %     plot(R,StO2parietal,'-x','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
     %% Linear Regression
     [r,m,b] = regression(R_oxy,StO2forehead);
@@ -137,12 +137,12 @@ for sID = 1:length(ALLstudyIDs)
     
     figure(2); hold on
     ylabel(texlabel('Total Hemoglobin Conc. ({mu}mol/L)'),'FontSize',25)
-    errorbar(R_oxy,THCforehead,THCforehead_std,'-o','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
+    shadedErrorBar(R_oxy,THCforehead,THCforehead_std,{'-o','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:)},0.5)
 %     plot(R,THCparietal,'-x','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
 
     figure(3); hold on
     ylabel('Blood Flow Index (cm^2/s)','FontSize',25)
-    errorbar(R_flow,BFIforehead,BFIforehead_std,'-o','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
+    shadedErrorBar(R_flow,BFIforehead,BFIforehead_std,{'-o','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:)},0.5)
 %     plot(R,BFIparietal,'-x','MarkerSize',10,'LineWidth',3,'Color',colors(sID,:))
 
     figure(4); hold on

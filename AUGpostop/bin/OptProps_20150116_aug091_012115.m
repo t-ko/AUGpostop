@@ -40,7 +40,7 @@ plotfigs=0;
 savefigs=1;
 
 %PC
-fdir=['..\' studyID '\' analysisID '\']
+fdir=['..' filesep '' studyID '' filesep '' analysisID '' filesep '']
 
 %LINUX
 %fdir=['../' studyID '/' analysisID '/'];
