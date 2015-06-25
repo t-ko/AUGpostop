@@ -4,7 +4,7 @@ close all
 clear all
 
 studyID = 'AUG091_011615';
-analysisIDs={'absolutes';'absolutes_011615';'absolutes_011715';'absolutes_011815';'absolutes_011915';'absolutes_012015';'absolutes_012115'}; %R1, R2, R3
+analysisIDs={'absolutes';'absolutes_011615';'absolutes_011715';'absolutes_011815';'absolutes_011915';'absolutes_012015';'absolutes_012115!'}; %R1, R2, R3
 plotID='absprops';
 
 StO2left = NaN(1,length(analysisIDs));

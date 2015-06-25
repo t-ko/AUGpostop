@@ -16,7 +16,7 @@ analysisID='absolutes_011615';
 ext='';
 
 % Enter indices of respective measurements HERE
-groups={[1 3 5];[2 4 6];[7 8 9 10];[11 12 13 14]};
+groups={[1 3 5];[2 4 6];[7 8 9 10 11];[12 13 14 15]};
 grouplabels={'Calibration block';'Check block 1';'Left forehead';'Right forehead'};
 
 %% Automatically generate legacy {labels} variable (updated 08-08-2013)
@@ -40,7 +40,7 @@ plotfigs=0;
 savefigs=1;
 
 %PC
-fdir=['..\' studyID '\' analysisID '\']
+fdir=['..' filesep '' studyID '' filesep '' analysisID '' filesep '']
 
 %LINUX
 %fdir=['../' studyID '/' analysisID '/'];
