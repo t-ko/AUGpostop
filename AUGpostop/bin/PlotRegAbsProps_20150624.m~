@@ -28,6 +28,7 @@ ALL_THCleft = [];
 ALL_THCright = [];
 ALL_THCleftparietal = [];
 ALL_THCrightparietal = [];
+
 ALL_BFIleft_std = [];
 ALL_BFIright_std = [];
 ALL_BFIleftparietal_std = [];
@@ -40,6 +41,19 @@ ALL_THCleft_std = [];
 ALL_THCright_std = [];
 ALL_THCleftparietal_std = [];
 ALL_THCrightparietal_std = [];
+
+AVG_BFIleft = [];
+AVG_BFIright = [];
+AVG_BFIleftparietal = [];
+AVG_BFIrightparietal = [];
+AVG_StO2left = [];
+AVG_StO2right = [];
+AVG_StO2leftparietal = [];
+AVG_StO2rightparietal = [];
+AVG_THCleft = [];
+AVG_THCright = [];
+AVG_THCleftparietal = [];
+AVG_THCrightparietal = [];
 
 for sID = 1:length(ALLstudyIDs)
     studyID = ALLstudyIDs{sID};
@@ -75,6 +89,20 @@ for sID = 1:length(ALLstudyIDs)
     ALL_THCleftparietal_std = [ALL_THCleftparietal_std THCleftparietal_std];
     ALL_THCrightparietal_std = [ALL_THCrightparietal_std THCrightparietal_std];
     
+    % Patient-Averaged
+    AVG_BFIleft = [AVG_BFIleft nanmean(BFIleft)];
+    AVG_BFIright = [AVG_BFIright nanmean(BFIright)];
+    AVG_BFIleftparietal = [AVG_BFIleftparietal nanmean(BFIleftparietal)];
+    AVG_BFIrightparietal = [AVG_BFIrightparietal nanmean(BFIrightparietal)];
+    AVG_StO2left = [AVG_StO2left nanmean(StO2left)];
+    AVG_StO2right = [AVG_StO2right nanmean(StO2right)];
+    AVG_StO2leftparietal = [AVG_StO2leftparietal nanmean(StO2leftparietal)];
+    AVG_StO2rightparietal = [AVG_StO2rightparietal nanmean(StO2rightparietal)];
+    AVG_THCleft = [AVG_THCleft nanmean(THCleft)];
+    AVG_THCright = [AVG_THCright nanmean(THCright)];
+    AVG_THCleftparietal = [AVG_THCleftparietal nanmean(THCleftparietal)];
+    AVG_THCrightparietal = [AVG_THCrightparietal nanmean(THCrightparietal)];
+    
     
     R = 1:length(analysisIDs)-1;
     if max(R) > xrange(2)
@@ -96,6 +124,16 @@ ALL_StO2right_std(ind_StO2); ...
 ALL_StO2left_std(ind_StO2); ...
 ALL_StO2leftparietal_std(ind_StO2)]','VariableNames',regionlabels_std);
 writetable(regional_StO2_std);
+
+AVG_regional_BFI=array2table([[AVG_BFIrightparietal AVG_BFIright AVG_BFIleft AVG_BFIleftparietal]', ...
+    [ones(1,length(AVG_BFIrightparietal)) 2.*ones(1,length(AVG_BFIright)) 3.*ones(1,length(AVG_BFIleft)) 4.*ones(1,length(AVG_BFIleftparietal))]'])
+writetable(AVG_regional_BFI);
+AVG_regional_StO2=array2table([[AVG_StO2rightparietal AVG_StO2right AVG_StO2left AVG_StO2leftparietal]', ...
+    [ones(1,length(AVG_StO2rightparietal)) 2.*ones(1,length(AVG_StO2right)) 3.*ones(1,length(AVG_StO2left)) 4.*ones(1,length(AVG_StO2leftparietal))]'])
+writetable(AVG_regional_StO2);
+AVG_regional_THC=array2table([[AVG_THCrightparietal AVG_THCright AVG_THCleft AVG_THCleftparietal]', ...
+    [ones(1,length(AVG_THCrightparietal)) 2.*ones(1,length(AVG_THCright)) 3.*ones(1,length(AVG_THCleft)) 4.*ones(1,length(AVG_THCleftparietal))]'])
+writetable(AVG_regional_THC);
 
 regional_dStO2=table2array(regional_StO2); %difference from right frontal
 regional_dStO2_std = table2array(regional_StO2_std);
@@ -188,7 +226,7 @@ bp = boxplot(table2array(regional_BFI),'labels',{'Rp','R','L','Lp'});
 set(bp(:,:),'linewidth',4);
 set(gca,'FontSize',25)
 set(findobj(gca,'Type','text'),'FontSize',25)
-ylabel('BFI (cm','FontSize',25)
+ylabel('BFI (cm^2/s)','FontSize',25)
 
 
 %% REGIONAL ANALYSIS
@@ -293,15 +331,15 @@ ylabel('BFI (cm','FontSize',25)
 set(f,'PaperPositionMode','Auto')
 maxwindows(f);
 if savefigures
-    saveas(gcf,['savedfigs/RegRelProps_' studyID '_' plotID_oxy '_plot' num2str(fn) '.fig'],'fig')
-    saveas(gcf,['savedfigs/RegRelProps_' studyID '_' plotID_oxy '_plot' num2str(fn) '.eps'],'epsc2')
-    saveas(gcf,['savedfigs/RegRelProps_' studyID '_' plotID_oxy '_plot' num2str(fn) '.png'],'png')
+    saveas(gcf,['savedfigs/RegRelProps_' studyID '_' plotID_oxy '.fig'],'fig')
+    saveas(gcf,['savedfigs/RegRelProps_' studyID '_' plotID_oxy '.eps'],'epsc2')
+    saveas(gcf,['savedfigs/RegRelProps_' studyID '_' plotID_oxy '.png'],'png')
 end
 
 set(f2,'PaperPositionMode','Auto')
 maxwindows(f2);
 if savefigures
-    saveas(gcf,['savedfigs/RegAbsProps_' studyID '_' plotID_oxy '_plot' num2str(fn) '.fig'],'fig')
-    saveas(gcf,['savedfigs/RegAbsProps_' studyID '_' plotID_oxy '_plot' num2str(fn) '.eps'],'epsc2')
-    saveas(gcf,['savedfigs/RegAbsProps_' studyID '_' plotID_oxy '_plot' num2str(fn) '.png'],'png')
+    saveas(gcf,['savedfigs/RegAbsProps_' studyID '_' plotID_oxy '.fig'],'fig')
+    saveas(gcf,['savedfigs/RegAbsProps_' studyID '_' plotID_oxy '.eps'],'epsc2')
+    saveas(gcf,['savedfigs/RegAbsProps_' studyID '_' plotID_oxy '.png'],'png')
 end
