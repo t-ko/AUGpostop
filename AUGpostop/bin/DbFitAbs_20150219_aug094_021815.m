@@ -22,6 +22,7 @@ regionlabels = {'Left Forehead','Right Forehead'};
 marksforgamma = [1 2];
 collectedo2=1;%Was oxygenation data collected in this study?  If so, will use changes in mua in our Dbfit
 syncmark=1;
+excludeframes=[29 30];
 
 %% PROBE PARAMETERS
 % Custom Probe 1
@@ -314,6 +315,8 @@ end
     %Set frames with I above cutoff = NaN
     corrs(int,:,d)=NaN;
     clear int
+    %Custom clear bad frames (added 2015-6-25, TK)
+    corrs(excludeframes,:,:)=NaN; %FRAME 29,30
     
     %Calculate gamma for sigma calculation
     %Will use the mean of all correlation curves taken over the range set above.  In

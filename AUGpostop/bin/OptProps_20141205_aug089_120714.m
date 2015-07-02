@@ -16,7 +16,7 @@ analysisID='absolutes_120714';
 ext='';
 
 % Enter indices of respective measurements HERE
-groups={[1 3 5];[2 4 6];[8 10];[12 13 14 15 16]}; %7 9 11 excluded for non-physiologic saturations
+groups={[1 3 5];[2 4 6];[8 10];[13 15]}; %7 9 11 excluded for non-physiologic saturations
 grouplabels={'Calibration block';'Check block 1';'Right forehead';'Left forehead'};
 
 %% Automatically generate legacy {labels} variable (updated 08-08-2013)

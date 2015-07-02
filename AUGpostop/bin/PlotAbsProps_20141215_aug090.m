@@ -4,7 +4,7 @@ close all
 clear all
 
 studyID = 'AUG090_121514';
-analysisIDs={'absolute';'absolutes_121514';'absolutes_121614';'absolutes_121714';'absolutes_121814';'absolutes_121914';'absolutes_122014';'absolutes_122114';'absolutes_122214'}; %R1, R2, R3
+analysisIDs={'absolutes';'absolutes_121514';'absolutes_121614';'absolutes_121714';'absolutes_121814';'absolutes_121914';'absolutes_122014';'absolutes_122114';'absolutes_122214'}; %R1, R2, R3
 plotID='absprops';
 
 StO2left = NaN(1,length(analysisIDs));
@@ -88,15 +88,18 @@ for R = 1:length(analysisIDs)
         Hbleft_std(R) = nanstd(Hb_left);
         HbO2left(R) = nanmean(HbO2_left);
         HbO2left_std(R) = nanstd(HbO2_left);
+        
         temp = nanmean(leftmusp,1);
         muspleft(R) = temp(2); %785nm
         temp = nanstd(leftmusp,1);
         muspleft_std(R) = temp(2);
+        
         temp = nanmean(leftmua,1);
         mualeft(R) = temp(2); %785nm
         temp = nanstd(leftmua,1);
         mualeft_std(R) = temp(2);
         
+        clear leftmusp leftmua
     end
     if exist('StO2_leftparietal','var') 
         StO2leftparietal(R) = nanmean(StO2_leftparietal);            
@@ -107,6 +110,8 @@ for R = 1:length(analysisIDs)
         muspleftparietal_std(R) = nanstd(leftparietalmusp(:,2));
         mualeftparietal(R) = nanmean(leftparietalmua(:,2));
         mualeftparietal_std(R) = nanstd(leftparietalmua(:,2));
+        
+        clear leftparietalmua leftparietalmusp HbO2_leftparietal Hb_leftparietal THC_leftparietal StO2_leftparietal DPF_leftparietal
     end
     if exist('StO2_right','var')       
         StO2right(R) = nanmean(StO2_right);            
@@ -117,14 +122,18 @@ for R = 1:length(analysisIDs)
         Hbright_std(R) = nanstd(Hb_right);
         HbO2right(R) = nanmean(HbO2_right);
         HbO2right_std(R) = nanstd(HbO2_right);
+        
         temp = nanmean(rightmusp,1);
         muspright(R) = temp(2);
         temp = nanstd(rightmusp,1);
         muspright_std(R) = temp(2);
+        
         temp = nanmean(rightmua,1);
         muaright(R) = temp(2);
         temp = nanstd(rightmua,1);
         muaright_std(R) = temp(2);
+        
+        clear rightmua rightmusp
     end
     if exist('StO2_rightparietal','var') 
         StO2rightparietal(R) = nanmean(StO2_rightparietal);            
@@ -135,9 +144,9 @@ for R = 1:length(analysisIDs)
         musprightparietal_std(R) = nanstd(rightparietalmusp(:,2));
         muarightparietal(R) = nanmean(rightparietalmua(:,2));
         muarightparietal_std(R) = nanstd(rightparietalmua(:,2));
+        
+        clear rightparietalmusa rightparietalmusp HbO2_rightparietal Hb_rightparietal THC_rightparietal StO2_rightparietal DPF_rightparietal  
     end
-      
-      
 end
 
 %% Extract post-operative time

@@ -1,0 +1,239 @@
+. kwallis2 ScO2, by(region)
+
+One-way analysis of variance by ranks (Kruskal-Wallis Test)
+
+region   Obs   RankSum  RankMean 
+--------------------------------
+  1       14    568.00     40.57
+  2       16    397.00     24.81
+  3       16    410.00     25.63
+  4       15    516.00     34.40
+
+Chi-squared (uncorrected for ties) =     8.030 with    3 d.f. (p = 0.04540)
+Chi-squared (corrected for ties)   =     8.035 with    3 d.f. (p = 0.04530)
+
+Multiple comparisons between groups
+-----------------------------------
+(Adjusted p-value for significance is 0.004167)
+
+Ho: ScO2(region==1) = ScO2(region==2)
+    RankMeans difference =     15.76  Critical value =     17.14
+    Prob = 0.007641 (NS)
+
+Ho: ScO2(region==1) = ScO2(region==3)
+    RankMeans difference =     14.95  Critical value =     17.14
+    Prob = 0.010709 (NS)
+
+Ho: ScO2(region==1) = ScO2(region==4)
+    RankMeans difference =      6.17  Critical value =     17.41
+    Prob = 0.174775 (NS)
+
+Ho: ScO2(region==2) = ScO2(region==3)
+    RankMeans difference =      0.81  Critical value =     16.56
+    Prob = 0.448501 (NS)
+
+Ho: ScO2(region==2) = ScO2(region==4)
+    RankMeans difference =      9.59  Critical value =     16.83
+    Prob = 0.066464 (NS)
+
+Ho: ScO2(region==3) = ScO2(region==4)
+    RankMeans difference =      8.77  Critical value =     16.83
+    Prob = 0.084517 (NS)
+
+All the groups are comparable from each other.
+
+. save "C:\Users\Tiffany\Dropbox\Research\DCS-DOS\Analysis\AUGpostop\AUGpostop\bin\savedfigs\regional_ScO2_data.dta"
+file C:\Users\Tiffany\Dropbox\Research\DCS-DOS\Analysis\AUGpostop\AUGpostop\bin\savedfigs\regional_ScO2_data.dta saved
+
+. use "C:\Users\Tiffany\Dropbox\Research\DCS-DOS\Analysis\AUGpostop\AUGpostop\bin\savedfigs\regional_BFI_data.dta", clear
+
+. kwallis2 BFI, by(region)
+
+One-way analysis of variance by ranks (Kruskal-Wallis Test)
+
+region   Obs   RankSum  RankMean 
+--------------------------------
+  1       14    475.00     33.93
+  2       11    291.00     26.45
+  3       16    232.00     14.50
+  4       12    433.00     36.08
+
+Chi-squared (uncorrected for ties) =    17.465 with    3 d.f. (p = 0.00057)
+Chi-squared (corrected for ties)   =    17.465 with    3 d.f. (p = 0.00057)
+
+Multiple comparisons between groups
+-----------------------------------
+(Adjusted p-value for significance is 0.004167)
+
+Ho: BFI(region==1) = BFI(region==2)
+    RankMeans difference =      7.47  Critical value =     16.42
+    Prob = 0.114845 (NS)
+
+Ho: BFI(region==1) = BFI(region==3)
+    RankMeans difference =     19.43  Critical value =     14.91
+    Prob = 0.000293 (S)
+
+Ho: BFI(region==1) = BFI(region==4)
+    RankMeans difference =      2.15  Critical value =     16.03
+    Prob = 0.361419 (NS)
+
+Ho: BFI(region==2) = BFI(region==3)
+    RankMeans difference =     11.95  Critical value =     15.96
+    Prob = 0.024058 (NS)
+
+Ho: BFI(region==2) = BFI(region==4)
+    RankMeans difference =      9.63  Critical value =     17.01
+    Prob = 0.067633 (NS)
+
+Ho: BFI(region==3) = BFI(region==4)
+    RankMeans difference =     21.58  Critical value =     15.56
+    Prob = 0.000126 (S)
+
+
+. use "C:\Users\Tiffany\Dropbox\Research\DCS-DOS\Analysis\AUGpostop\AUGpostop\bin\savedfigs\regional_THC_data.dta", clear
+
+. kwallis2 THC, by(region)
+
+One-way analysis of variance by ranks (Kruskal-Wallis Test)
+
+region   Obs   RankSum  RankMean 
+--------------------------------
+  1       14    588.00     42.00
+  2       16    380.00     23.75
+  3       16    377.00     23.56
+  4       15    546.00     36.40
+
+Chi-squared (uncorrected for ties) =    12.239 with    3 d.f. (p = 0.00661)
+Chi-squared (corrected for ties)   =    12.247 with    3 d.f. (p = 0.00658)
+
+Multiple comparisons between groups
+-----------------------------------
+(Adjusted p-value for significance is 0.004167)
+
+Ho: THC(region==1) = THC(region==2)
+    RankMeans difference =     18.25  Critical value =     17.14
+    Prob = 0.002485 (S)
+
+Ho: THC(region==1) = THC(region==3)
+    RankMeans difference =     18.44  Critical value =     17.14
+    Prob = 0.002271 (S)
+
+Ho: THC(region==1) = THC(region==4)
+    RankMeans difference =      5.60  Critical value =     17.41
+    Prob = 0.197984 (NS)
+
+Ho: THC(region==2) = THC(region==3)
+    RankMeans difference =      0.19  Critical value =     16.56
+    Prob = 0.488084 (NS)
+
+Ho: THC(region==2) = THC(region==4)
+    RankMeans difference =     12.65  Critical value =     16.83
+    Prob = 0.023703 (NS)
+
+Ho: THC(region==3) = THC(region==4)
+    RankMeans difference =     12.84  Critical value =     16.83
+    Prob = 0.022108 (NS)
+
+
+
+
+. mixed BFIavg t_postop || ID: t_postop, nolog
+
+Mixed-effects ML regression                     Number of obs      =        82
+Group variable: ID                              Number of groups   =        11
+
+                                                Obs per group: min =         5
+                                                               avg =       7.5
+                                                               max =        12
+
+
+                                                Wald chi2(1)       =      4.90
+Log likelihood =  115.52166                     Prob > chi2        =    0.0268
+
+------------------------------------------------------------------------------
+      BFIavg |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    t_postop |   .0072815   .0032883     2.21   0.027     .0008365    .0137265
+       _cons |    .185209   .0126728    14.61   0.000     .1603707    .2100473
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
+-----------------------------+------------------------------------------------
+ID: Independent              |
+               var(t_postop) |   .0000225   .0000307      1.54e-06    .0003282
+                  var(_cons) |   .0007956   .0005785      .0001913    .0033085
+-----------------------------+------------------------------------------------
+               var(Residual) |   .0028934   .0004993      .0020631     .004058
+------------------------------------------------------------------------------
+LR test vs. linear regression:       chi2(2) =    10.38   Prob > chi2 = 0.0056
+
+Note: LR test is conservative and provided only for reference.
+
+. mixed ScO2avg t_postop || ID: t_postop, nolog
+
+Mixed-effects ML regression                     Number of obs      =        82
+Group variable: ID                              Number of groups   =        11
+
+                                                Obs per group: min =         5
+                                                               avg =       7.5
+                                                               max =        12
+
+
+                                                Wald chi2(1)       =      3.93
+Log likelihood = -292.44139                     Prob > chi2        =    0.0473
+
+------------------------------------------------------------------------------
+     ScO2avg |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    t_postop |  -.7530329   .3796136    -1.98   0.047    -1.497062   -.0090038
+       _cons |   53.75218   2.450767    21.93   0.000     48.94877     58.5556
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
+-----------------------------+------------------------------------------------
+ID: Independent              |
+               var(t_postop) |   8.36e-19   9.69e-18      1.14e-28    6.12e-09
+                  var(_cons) |   47.92018   23.75778      18.13474    126.6268
+-----------------------------+------------------------------------------------
+               var(Residual) |   56.28862   9.440897      40.51861    78.19639
+------------------------------------------------------------------------------
+LR test vs. linear regression:       chi2(2) =    28.84   Prob > chi2 = 0.0000
+
+Note: LR test is conservative and provided only for reference.
+
+. mixed THCavg t_postop || ID: t_postop, nolog
+
+Mixed-effects ML regression                     Number of obs      =        82
+Group variable: ID                              Number of groups   =        11
+
+                                                Obs per group: min =         5
+                                                               avg =       7.5
+                                                               max =        12
+
+
+                                                Wald chi2(1)       =      4.82
+Log likelihood = -306.86588                     Prob > chi2        =    0.0282
+
+------------------------------------------------------------------------------
+      THCavg |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+    t_postop |  -1.603961   .7307332    -2.20   0.028    -3.036172   -.1717499
+       _cons |   41.15122   2.766021    14.88   0.000     35.72992    46.57252
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
+-----------------------------+------------------------------------------------
+ID: Independent              |
+               var(t_postop) |   2.862723   2.375262      .5630144    14.55591
+                  var(_cons) |    58.9527   33.75701      19.19091    181.0972
+-----------------------------+------------------------------------------------
+               var(Residual) |   71.55347   13.47485      49.46905     103.497
+------------------------------------------------------------------------------
+LR test vs. linear regression:       chi2(2) =    28.53   Prob > chi2 = 0.0000
+
+Note: LR test is conservative and provided only for reference.
+
+

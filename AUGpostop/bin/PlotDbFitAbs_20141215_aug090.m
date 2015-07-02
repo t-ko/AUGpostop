@@ -63,7 +63,7 @@ SurgeryVector = datevec(DateofSurgery(idn))+datevec(AnesthesiaRecordTimeoffXClam
 
 t_postop = [];
 for p = 1:length(prefixes)
-    t_postop(p) = datenum(DateVector(p,:)-(SurgeryVector)); %days since surgery
+    t_postop(p) = datenum(DateVector(p,:))-datenum((SurgeryVector)); %days since surgery
 end
 %%%%%
 
@@ -158,12 +158,14 @@ end
 
 % Process average bilateral trend
 BFIforehead = nanmean([BFIleft; BFIright]);
-BFIforehead_std = sqrt(BFIleft_std.^2+BFIright_std.^2);
+BFIforehead_std = sqrt(nansum([BFIleft_std.^2;BFIright_std.^2],1));
 BFIparietal = nanmean([BFIleftparietal; BFIrightparietal]);
-BFIparietal_std = sqrt(BFIleftparietal_std.^2+BFIrightparietal_std.^2);
+BFIparietal_std = sqrt(nansum([BFIleftparietal_std.^2;BFIrightparietal_std.^2],1));
 
 rBFIforehead = BFIforehead./BFIforehead(min(find(~isnan(BFIforehead)))).*100;
+rBFIforehead_std = rBFIforehead.*sqrt((BFIforehead_std./BFIforehead).^2+(nanstd(BFIforehead(min(find(~isnan(BFIforehead)))))./nanmean(BFIforehead(min(find(~isnan(BFIforehead)))))).^2);
 rBFIparietal = BFIparietal./BFIforehead(min(find(~isnan(BFIforehead)))).*100;
+rBFIparietal_std = rBFIparietal.*sqrt((BFIparietal_std./BFIparietal).^2+(nanstd(BFIparietal(min(find(~isnan(BFIparietal)))))./nanmean(BFIparietal(min(find(~isnan(BFIparietal)))))).^2);
 
 f=figure(4);
 regionlabels = {'Forehead','Parietal'};
@@ -210,5 +212,5 @@ end
 %%%%%%%%%%
 
 
-tt=['save plotDbFitAbs_' studyID '_' plotID '.mat names avgfit studyID analysisIDs sources baselinemarks markstoshow markstolabel excludemarks t0 frameperiod region fMarks BFIleft BFIleft_std BFIright BFIright_std BFIleftparietal BFIleftparietal_std BFIrightparietal BFIrightparietal_std BFIforehead BFIforehead_std BFIparietal BFIparietal_std rBFIforehead rBFIparietal t_postop'];
+tt=['save plotDbFitAbs_' studyID '_' plotID '.mat names avgfit studyID analysisIDs sources baselinemarks markstoshow markstolabel excludemarks t0 frameperiod region fMarks BFIleft BFIleft_std BFIright BFIright_std BFIleftparietal BFIleftparietal_std BFIrightparietal BFIrightparietal_std BFIforehead BFIforehead_std BFIparietal BFIparietal_std rBFIforehead rBFIforehead_std rBFIparietal rBFIparietal_std t_postop'];
 eval(tt);

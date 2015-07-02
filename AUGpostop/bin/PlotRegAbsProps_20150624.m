@@ -16,6 +16,9 @@ xrange = [0 0];
 rBFIyrange = [Inf 0];
 markers = {'+','o','*','x','>','^'};
 
+ALL_t_postop = [];
+ALL_index = [];
+
 ALL_BFIleft = [];
 ALL_BFIright = [];
 ALL_BFIleftparietal = [];
@@ -63,6 +66,8 @@ for sID = 1:length(ALLstudyIDs)
     fname2=[ 'plotAbsProps_' studyID '_' plotID_oxy '.mat'];
     load([ fname2 ]); 
     R_oxy = t_postop;
+    ALL_index = [ALL_index sID.*ones(size(t_postop))];
+    ALL_t_postop = [ALL_t_postop t_postop];
     ALL_BFIleft = [ALL_BFIleft BFIleft];
     ALL_BFIright = [ALL_BFIright BFIright];
     ALL_BFIleftparietal = [ALL_BFIleftparietal BFIleftparietal];
@@ -108,6 +113,7 @@ for sID = 1:length(ALLstudyIDs)
     if max(R) > xrange(2)
         xrange(2) = max(R);
     end
+    clear BFIleft BFIright BFIleftparietal BFIrightparietal StO2left StO2right StO2leftparietal StO2rightparietal THCleft  THCright THCleftparietal THCrightparietal  BFIleft_std BFIright_std BFIleftparietal_std BFIrightparietal_std StO2left_std StO2right_std StO2leftparietal_std StO2rightparietal_std THCleft_std THCright_std THCleftparietal_std THCrightparietal_std         
 end
 ind_StO2 = find(((~isnan(ALL_StO2left))+(~isnan(ALL_StO2right))+(~isnan(ALL_StO2rightparietal))+(~isnan(ALL_StO2leftparietal)))>2);
 ind_THC = find(((~isnan(ALL_THCleft))+(~isnan(ALL_THCright))+(~isnan(ALL_THCrightparietal))+(~isnan(ALL_THCleftparietal)))>2);
@@ -125,20 +131,20 @@ ALL_StO2left_std(ind_StO2); ...
 ALL_StO2leftparietal_std(ind_StO2)]','VariableNames',regionlabels_std);
 writetable(regional_StO2_std);
 
-AVG_regional_BFI=array2table([AVG_BFIrightparietal' AVG_BFIright' AVG_BFIleft' AVG_BFIleftparietal'], ...
-    [ones(1,length(AVG_BFIrightparietal)) 2.*ones(1,length(AVG_BFIright)) 3.*ones(1,length(AVG_BFIleft)) 4.*ones(1,length(AVG_BFIleftparietal))]')
-writetable(AVG_regional_BFI);
-AVG_regional_StO2=array2table([AVG_StO2rightparietal' AVG_StO2right' AVG_StO2left' AVG_StO2leftparietal'], ...
-    [ones(1,length(AVG_StO2rightparietal)) 2.*ones(1,length(AVG_StO2right)) 3.*ones(1,length(AVG_StO2left)) 4.*ones(1,length(AVG_StO2leftparietal))]')
-writetable(AVG_regional_StO2);
-AVG_regional_THC=array2table([AVG_THCrightparietal' AVG_THCright' AVG_THCleft' AVG_THCleftparietal'], ...
-    [ones(1,length(AVG_THCrightparietal)) 2.*ones(1,length(AVG_THCright)) 3.*ones(1,length(AVG_THCleft)) 4.*ones(1,length(AVG_THCleftparietal))]')
-writetable(AVG_regional_THC);
+AVG_regional_BFI=array2table([[AVG_BFIrightparietal AVG_BFIright AVG_BFIleft AVG_BFIleftparietal]', ...
+    [ones(1,length(AVG_BFIrightparietal)) 2.*ones(1,length(AVG_BFIright)) 3.*ones(1,length(AVG_BFIleft)) 4.*ones(1,length(AVG_BFIleftparietal))]'])
+% writetable(AVG_regional_BFI);
+AVG_regional_StO2=array2table([[AVG_StO2rightparietal AVG_StO2right AVG_StO2left AVG_StO2leftparietal]', ...
+    [ones(1,length(AVG_StO2rightparietal)) 2.*ones(1,length(AVG_StO2right)) 3.*ones(1,length(AVG_StO2left)) 4.*ones(1,length(AVG_StO2leftparietal))]'])
+% writetable(AVG_regional_StO2);
+AVG_regional_THC=array2table([[AVG_THCrightparietal AVG_THCright AVG_THCleft AVG_THCleftparietal]', ...
+    [ones(1,length(AVG_THCrightparietal)) 2.*ones(1,length(AVG_THCright)) 3.*ones(1,length(AVG_THCleft)) 4.*ones(1,length(AVG_THCleftparietal))]'])
+% writetable(AVG_regional_THC);
 
 regional_dStO2=table2array(regional_StO2); %difference from right frontal
 regional_dStO2_std = table2array(regional_StO2_std);
 for col = 1:size(regional_dStO2,2)
-    regional_dStO2(:,col) = regional_dStO2(:,col)-(ALL_StO2right(ind_StO2)');
+    regional_dStO2(:,col) = regional_dStO2(:,col)-nanmedian(ALL_StO2right(ind_StO2)');
     regional_dStO2_std(:,col) = sqrt(regional_dStO2_std(:,col).^2 + (ALL_StO2right_std(ind_StO2)'.^2));
 end
 reg_avg_dStO2 = nanmean(regional_dStO2,1);
@@ -173,7 +179,7 @@ writetable(regional_THC_std);
 regional_dTHC=table2array(regional_THC); % difference from right frontal
 regional_dTHC_std = table2array(regional_THC_std);
 for col = 1:size(regional_dTHC,2)
-    regional_dTHC(:,col) = regional_dTHC(:,col)-(ALL_THCright(ind_THC)');
+    regional_dTHC(:,col) = regional_dTHC(:,col)-nanmedian(ALL_THCright(ind_THC)');
     regional_dTHC_std(:,col) = sqrt(regional_dTHC_std(:,col).^2 + (ALL_THCright_std(ind_THC)'.^2));
 end
 reg_avg_dTHC = nanmean(regional_dTHC,1);
@@ -208,7 +214,7 @@ writetable(regional_BFI_std);
 regional_rBFI=table2array(regional_BFI); % Percentage change from right frontal
 regional_rBFI_std = zeros(size(regional_rBFI));
 for col = 1:size(regional_rBFI,2)
-    regional_rBFI(:,col) = (regional_rBFI(:,col)./(ALL_BFIright(ind_BFI)')-1)*100;
+    regional_rBFI(:,col) = (regional_rBFI(:,col)./nanmedian(ALL_BFIright(ind_BFI)')-1)*100;
     regional_rBFI_std(:,col) = regional_rBFI(:,col).*sqrt((regional_rBFI_std(:,col)./regional_rBFI(:,col)).^2+((ALL_BFIright_std(ind_BFI)')./(ALL_BFIright(ind_BFI)')).^2);
 end
 reg_avg_rBFI = nanmean(regional_rBFI,1);

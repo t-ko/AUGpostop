@@ -1,0 +1,116 @@
+ mixed BFI t_postop i.group i.group#c.t_postop || group: t_postop, nolog
+
+Mixed-effects ML regression                     Number of obs      =       106
+Group variable: group                           Number of groups   =         2
+
+                                                Obs per group: min =        50
+                                                               avg =      53.0
+                                                               max =        56
+
+
+                                                Wald chi2(3)       =     18.66
+Log likelihood = -91.113375                     Prob > chi2        =    0.0003
+
+----------------------------------------------------------------------------------
+             BFI |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------+----------------------------------------------------------------
+        t_postop |   .1146093   .0301444     3.80   0.000     .0555274    .1736912
+         2.group |   .4759563   .1748358     2.72   0.006     .1332844    .8186281
+                 |
+group#c.t_postop |
+              2  |  -.0829414   .0502851    -1.65   0.099    -.1814984    .0156156
+                 |
+           _cons |   1.516249   .1184124    12.80   0.000     1.284165    1.748333
+----------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
+-----------------------------+------------------------------------------------
+group: Independent           |
+               var(t_postop) |   9.92e-23          .             .           .
+                  var(_cons) |   1.25e-22          .             .           .
+-----------------------------+------------------------------------------------
+               var(Residual) |   .3266857          .             .           .
+------------------------------------------------------------------------------
+LR test vs. linear regression:       chi2(2) =     0.00   Prob > chi2 = 1.0000
+
+Note: LR test is conservative and provided only for reference.
+
+. mixed ScO2 t_postop i.group i.group#c.t_postop || group: t_postop, nolog
+
+Mixed-effects ML regression                     Number of obs      =       106
+Group variable: group                           Number of groups   =         2
+
+                                                Obs per group: min =        50
+                                                               avg =      53.0
+                                                               max =        56
+
+
+                                                Wald chi2(3)       =      4.39
+Log likelihood = -406.53061                     Prob > chi2        =    0.2224
+
+----------------------------------------------------------------------------------
+            ScO2 |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------+----------------------------------------------------------------
+        t_postop |   .1313081    .590892     0.22   0.824    -1.026819    1.289435
+         2.group |   5.761791   3.427141     1.68   0.093    -.9552817    12.47886
+                 |
+group#c.t_postop |
+              2  |  -.5138951   .9856916    -0.52   0.602    -2.445815    1.418025
+                 |
+           _cons |   48.81862   2.321126    21.03   0.000      44.2693    53.36794
+----------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
+-----------------------------+------------------------------------------------
+group: Independent           |
+               var(t_postop) |   1.20e-18          .             .           .
+                  var(_cons) |   5.30e-20          .             .           .
+-----------------------------+------------------------------------------------
+               var(Residual) |   125.5259          .             .           .
+------------------------------------------------------------------------------
+LR test vs. linear regression:       chi2(2) =     0.00   Prob > chi2 = 1.0000
+
+Note: LR test is conservative and provided only for reference.
+
+. mixed THC t_postop i.group i.group#c.t_postop || group: t_postop, nolog
+
+Mixed-effects ML regression                     Number of obs      =       106
+Group variable: group                           Number of groups   =         2
+
+                                                Obs per group: min =        50
+                                                               avg =      53.0
+                                                               max =        56
+
+
+                                                Wald chi2(3)       =      2.98
+Log likelihood = -413.57797                     Prob > chi2        =    0.3954
+
+----------------------------------------------------------------------------------
+             THC |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-----------------+----------------------------------------------------------------
+        t_postop |  -.8814672   .6315125    -1.40   0.163    -2.119209    .3562745
+         2.group |   .3434552   3.662737     0.09   0.925    -6.835378    7.522289
+                 |
+group#c.t_postop |
+              2  |   .1283663   1.053452     0.12   0.903    -1.936362    2.193095
+                 |
+           _cons |   41.13416    2.48069    16.58   0.000      36.2721    45.99623
+----------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects Parameters  |   Estimate   Std. Err.     [95% Conf. Interval]
+-----------------------------+------------------------------------------------
+group: Independent           |
+               var(t_postop) |   1.39e-18          .             .           .
+                  var(_cons) |   6.84e-20          .             .           .
+-----------------------------+------------------------------------------------
+               var(Residual) |   143.3775          .             .           .
+------------------------------------------------------------------------------
+LR test vs. linear regression:       chi2(2) =     0.00   Prob > chi2 = 1.0000
+
+Note: LR test is conservative and provided only for reference.
+
+. *(1 variable, 107 observations pasted into data editor)
+

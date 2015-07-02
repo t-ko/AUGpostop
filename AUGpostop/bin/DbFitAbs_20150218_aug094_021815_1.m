@@ -17,11 +17,12 @@ exten={''};
 s=1; %source select, 1 or 2
 usedflowdets=[6 7 8];%must be consecutive, cannot be ex. 1,3,4 or 2,4.  must change code if this is the case 
 fitavg = 1; %average all usedflowdets during correlation fitting?
-regionmarks = {[4 5],[2 3]}; % leave empty cell {} if no region discrimination
+regionmarks = {[4 5],[1 3]}; % leave empty cell {} if no region discrimination
 regionlabels = {'Left Forehead','Right Forehead'};
 marksforgamma = [1 2];
 collectedo2=1;%Was oxygenation data collected in this study?  If so, will use changes in mua in our Dbfit
 syncmark=1;
+excludeframes = [14 15];
 
 %% PROBE PARAMETERS
 % Custom Probe 1
@@ -314,6 +315,8 @@ end
     %Set frames with I above cutoff = NaN
     corrs(int,:,d)=NaN;
     clear int
+    %Custom clear bad frames (added 2015-6-25, TK)
+    corrs(excludeframes,:,:)=NaN;
     
     %Calculate gamma for sigma calculation
     %Will use the mean of all correlation curves taken over the range set above.  In

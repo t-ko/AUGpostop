@@ -22,3 +22,6 @@ BFI_probe_post_left,top,bottom,top,top,top,top,top,top
 BFI_probe_post_right,top,bottom,top,top,top,top,top,top
 BFI_probe_post_left_parietal,,,,,top_horizontal,front_horizontal,top_horizontal,front_vertical
 BFI_probe_post_right_parietal,,,,,top_horizontal,top_vertical,top_horizontal,top_horizontal
+abs_probe,,,,,,,,
+dcs_probe,,,,,,,,
+notes,peripheral arterial line due to Uvarterial dissection,,dianosed with JET,,,,SUCKING ACQUIRED,
