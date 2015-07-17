@@ -1,0 +1,150 @@
+   <UserMeasurements>
+      <Modalities>
+         <Modality value="pH" >
+            <Description>
+                ABG
+            </Description>
+            <Category value="Lab Values" />
+            <Units value="" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="-999,999" >
+                -999,999
+            </VerticalScales>
+         </Modality>
+         <Modality value="paco2" >
+            <Description>
+                abg
+            </Description>
+            <Category value="Lab Values" />
+            <Units value="" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="0,999" >
+                0,999
+            </VerticalScales>
+         </Modality>
+         <Modality value="pao2" >
+            <Description>
+                ABG
+            </Description>
+            <Category value="Lab Values" />
+            <Units value="" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="0,999" >
+                0,999
+            </VerticalScales>
+         </Modality>
+         <Modality value="Bicar" >
+            <Description>
+                ABG
+            </Description>
+            <Category value="Lab Values" />
+            <Units value="" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="0,999" >
+                0,999
+            </VerticalScales>
+         </Modality>
+         <Modality value="Hgb" >
+            <Description>
+                ABG
+            </Description>
+            <Category value="Lab Values" />
+            <Units value="" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="-999,999" >
+                -999,999
+            </VerticalScales>
+         </Modality>
+         <Modality value="o2sat" >
+            <Description>
+                ABG
+            </Description>
+            <Category value="Lab Values" />
+            <Units value="" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="-999,999" >
+                -999,999
+            </VerticalScales>
+         </Modality>
+         <Modality value="Ca" >
+            <Description>
+                ABG
+            </Description>
+            <Category value="Lab Values" />
+            <Units value="" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="-999,999" >
+                -999,999
+            </VerticalScales>
+         </Modality>
+         <Modality value="Na" >
+            <Description>
+                ABG
+            </Description>
+            <Category value="Lab Values" />
+            <Units value="" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="-999,999" >
+                -999,999
+            </VerticalScales>
+         </Modality>
+         <Modality value="K" >
+            <Description>
+                ABG
+            </Description>
+            <Category value="Lab Values" />
+            <Units value="" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="-999,999" >
+                -999,999
+            </VerticalScales>
+         </Modality>
+         <Modality value="lacta" >
+            <Description>
+                ABG
+            </Description>
+            <Category value="Lab Values" />
+            <Units value="" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="-999,999" >
+                -999,999
+            </VerticalScales>
+         </Modality>
+         <Modality value="gluco" >
+            <Description>
+                ABG
+            </Description>
+            <Category value="Lab Values" />
+            <Units value="" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="-999,999" >
+                -999,999
+            </VerticalScales>
+         </Modality>
+         <Modality value="act" >
+            <Description>
+                ABG
+            </Description>
+            <Category value="Lab Values" />
+            <Units value="" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="-999,999" >
+                -999,999
+            </VerticalScales>
+         </Modality>
+         <Modality value="csbp" >
+            <Description>systolic cuff BP</Description>
+            <Category value="Hemodynamic" />
+            <Units value="mmhg" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="20,200" >20,200</VerticalScales>
+         </Modality>
+         <Modality value="cdbp" >
+            <Description>diastolic cuff BP</Description>
+            <Category value="Hemodynamic" />
+            <Units value="mmhg" />
+            <DefaultColor value="#ffffff" />
+            <VerticalScales default="10,150" >10,150</VerticalScales>
+         </Modality>
+      </Modalities>
+   </UserMeasurements>

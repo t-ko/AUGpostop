@@ -1,0 +1,151 @@
+   <CHDSolar>
+      <Measurements>
+         <EEG DefaultSource="none" />
+         <HR DefaultSource="Solar" CollectFrom="Solar" />
+         <RR DefaultSource="Solar" CollectFrom="Solar" />
+         <GCS DefaultSource="ManualEntry" CollectFrom="ManualEntry" />
+         <SpO2 DefaultSource="Solar" CollectFrom="Solar" />
+         <rSO2 DefaultSource="none" />
+         <Hct DefaultSource="CDI" CollectFrom="CDI" />
+         <ECG DefaultSource="Solar" CollectFrom="Solar" />
+         <ABP DefaultSource="Invivo" CollectFrom="Invivo" />
+         <PLETH DefaultSource="none" />
+         <RESP DefaultSource="none" />
+         <T1 DefaultSource="Solar" CollectFrom="Solar" />
+         <T2 DefaultSource="Solar" CollectFrom="Solar" />
+         <T3 DefaultSource="Solar" CollectFrom="Solar" />
+         <T4 DefaultSource="Solar" CollectFrom="Solar" />
+         <Tart DefaultSource="none" />
+         <Tcore DefaultSource="none" />
+         <Tesop DefaultSource="none" />
+         <Tnaso DefaultSource="none" />
+         <Trect DefaultSource="none" />
+         <Tskin DefaultSource="none" />
+         <Tven DefaultSource="none" />
+         <Twater DefaultSource="none" />
+         <TsetPt DefaultSource="none" />
+         <RAP DefaultSource="Solar" CollectFrom="Solar" />
+         <Temp DefaultSource="none" />
+         <EtCO2 DefaultSource="none" />
+         <inCO2 DefaultSource="none" />
+         <FiO2 DefaultSource="none" />
+         <NBP DefaultSource="Solar" CollectFrom="Solar" />
+         <pH DefaultSource="ManualEntry" CollectFrom="ManualEntry" />
+         <paco2 DefaultSource="ManualEntry" CollectFrom="ManualEntry" />
+         <pao2 DefaultSource="ManualEntry" CollectFrom="ManualEntry" />
+         <Bicar DefaultSource="none" />
+         <Hgb DefaultSource="CDI" CollectFrom="CDI" />
+         <o2sat DefaultSource="ManualEntry" CollectFrom="ManualEntry" />
+         <Ca DefaultSource="none" />
+         <Na DefaultSource="ManualEntry" CollectFrom="ManualEntry" />
+         <K DefaultSource="ManualEntry" CollectFrom="ManualEntry" />
+         <lacta DefaultSource="ManualEntry" CollectFrom="ManualEntry" />
+         <gluco DefaultSource="ManualEntry" CollectFrom="ManualEntry" />
+         <act DefaultSource="none" />
+         <SO2 DefaultSource="CDI" CollectFrom="CDI" />
+         <cdbp DefaultSource="ManualEntry" CollectFrom="ManualEntry" />
+         <ART DefaultSource="Solar" CollectFrom="Solar" />
+      </Measurements>
+      <Initialized/>
+      <PreviousAvailableDevices value="CDI,Invivo,MRIAmp,ManualEntry,Solar,Video" />
+      <MeasurementSettings>
+         <Modality modality="EEG" >
+            <Type type="SampleSeries" >
+               <ImpedanceSignal value="On" />
+               <HighImpedanceThreshold value="20000.0" />
+               <ImpedanceImbalance value="2000.0" />
+               <RequiredQualifiers value="HPF,LPF" />
+               <HPF value="0.5" />
+               <LPF value="30" />
+               <ECGHPF value="0.5" />
+               <ECGLPF value="50" />
+               <EMGHPF value="0.5" />
+               <EMGLPF value="50" />
+               <EOGHPF value="0.5" />
+               <EOGLPF value="30" />
+               <RespHPF value="0.5" />
+               <RespLPF value="50" />
+               <EEGAmplitudeScale value="80" />
+               <Overlap value="On" />
+               <LowImpedanceThreshold value="250.0" />
+               <CSDHPF value="0.005" />
+               <CSDLPF value="0" />
+               <EEGSensitivity value="5" />
+               <CSDSensitivity value="150" />
+               <CSDTraceColor value="normal" />
+            </Type>
+            <Type type="PowerSpectrum" >
+               <WindowDuration value="2000000" />
+               <EpochDuration value="2000000" />
+               <SpectrumWidth value="30" />
+               <SpectrumSmoothing value="3pt" />
+            </Type>
+            <Type type="SEF" >
+               <EdgePercent value="95" />
+               <NoiseThreshold value="0.8" />
+            </Type>
+         </Modality>
+         <Modality modality="RR" >
+            <Type type="Numeric" >
+               <AlarmSettings High="Off" EventEnabled="no" Enabled="no" Low="Off" Latched="no" />
+            </Type>
+         </Modality>
+         <Modality modality="HR" >
+            <Type type="Numeric" >
+               <AmplitudeScale value="0,200" />
+            </Type>
+         </Modality>
+         <Modality modality="NBP" >
+            <Type type="Numeric" >
+               <AmplitudeScale value="40,150" />
+            </Type>
+         </Modality>
+         <Modality modality="Temp" >
+            <Type type="Numeric" >
+               <AmplitudeScale value="15,45" />
+            </Type>
+         </Modality>
+         <Modality modality="SpO2" >
+            <Type type="Numeric" >
+               <AmplitudeScale value="50,100" />
+            </Type>
+         </Modality>
+         <Modality modality="ABP,Mean" >
+            <Type type="Numeric" >
+               <CustomAmplitudeScales value="50,90" />
+               <AmplitudeScale value="50,90" />
+            </Type>
+         </Modality>
+      </MeasurementSettings>
+      <Step step_name="Monitor Trends" >
+         <LastScreen screen_name="CICU 12&lt;br>HR." />
+         <Screen screen_name="MRI STUDY" >
+            <Display display_name="Display1" Duration="1800" />
+         </Screen>
+         <Screen screen_name="CICU 12&lt;br>HR." >
+            <Display display_name="Display1" CursorTime="0" Duration="1800" />
+            <Display display_name="Display2" VideoDisplayState="Live" />
+         </Screen>
+         <Screen screen_name="Vital Sign Trends" >
+            <Display display_name="Display1" Duration="1800" />
+         </Screen>
+         <Screen screen_name="SDU" >
+            <Display display_name="Display1" CursorTime="0" Duration="1800" />
+         </Screen>
+         <Screen screen_name="CDI" >
+            <Display display_name="Display1" Duration="1800" />
+         </Screen>
+      </Step>
+      <LastScreen step="Monitor Trends" screen="CICU 12&lt;br>HR." />
+      <Step step_name="Setup" >
+         <LastScreen screen_name="Status" />
+      </Step>
+      <Step step_name="View Report" >
+         <LastScreen screen_name="Overview" />
+         <Screen screen_name="Generate Report" >
+            <Display display_name="Report" />
+         </Screen>
+      </Step>
+      <EEGAmpPatientSetup configuration="Start" />
+      <RecordingVideo value="false" />
+   </CHDSolar>

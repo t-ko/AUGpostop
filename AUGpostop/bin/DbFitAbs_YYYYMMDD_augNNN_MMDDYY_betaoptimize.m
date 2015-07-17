@@ -211,11 +211,11 @@ end
 
         % Weight optical prop average by date
         for RR = 1:length(analysisIDs)
-            absID = analysisIDs{RR};
+            absID_temp = analysisIDs{RR};
             ext='';
-            fname1=[ studyID '_' absID ext '_baselines.mat'];
+            fname1=[ studyID '_' absID_temp ext '_baselines.mat'];
             load(fname1);
-            fdir=['..' filesep studyID filesep absID filesep];
+            fdir=['..' filesep studyID filesep absID_temp filesep];
             files=dir([ fdir 'Data_*.txt']);
             fname=files(1).name(6:end-4);
             if length(fname)>13
@@ -721,7 +721,7 @@ else
         saveas(gcf,['..' filesep studyID filesep 'savedfigs' filesep 'DbFitavg_' studyID '_S' num2str(s) '_' analysisID '_fitbeta.jpg'],'jpg')
     end
     muao=mua;
-    ff=['save ' studyID '_S' num2str(s) '_' analysisID '_flow_output_fitavg.mat timeaxis_flow muao muspo taus Dbfitavg Curvefitavg Curvefitg2avg corrsavg g1avg intensityavg Marksflow numframestoavg fvalavg exitflagavg Betasaveavg usedflowdets fitbeta fitavg startcorr datalength avgnum cutoff prefix regionmarks regionlabels'];
+    ff=['save ' studyID '_S' num2str(s) '_' analysisID '_flow_output_fitavg.mat timeaxis_flow muao muspo taus Dbfitavg Curvefitavg Curvefitg2avg corrsavg g1avg intensityavg Marksflow numframestoavg fvalavg exitflagavg Betasaveavg usedflowdets fitbeta fitavg startcorr datalength avgnum cutoff prefix regionmarks regionlabels absID'];
     eval(ff);
 
 end

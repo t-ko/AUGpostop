@@ -1,0 +1,3 @@
+<TypeSettings type="SpO2,na,Numeric,FloatAggregate,Solar">
+	<Units>%</Units>
+</TypeSettings>

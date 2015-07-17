@@ -1,0 +1,47 @@
+<PatientInfo>
+    <FileVersion>
+        3.0
+    </FileVersion>
+    <SoftwareVersion>
+        Z.12.109
+    </SoftwareVersion>
+    <SystemName>
+        CNSMonitor27556
+    </SystemName>
+    <MACAddr>
+        00:03:1d:07:2f:6e
+    </MACAddr>
+    <PatientFirstName>
+        aug103cont
+    </PatientFirstName>
+    <PatientLastName>
+        
+    </PatientLastName>
+    <MedicalRecordNumber>
+        
+    </MedicalRecordNumber>
+    <PhysicianName>
+        
+    </PhysicianName>
+    <Gender>
+        
+    </Gender>
+    <Birthdate>
+        
+    </Birthdate>
+    <AdditionalInfo>
+        
+    </AdditionalInfo>
+    <TimeStamp>
+        1435404333245203
+    </TimeStamp>
+    <SystemOffset>
+        -16
+    </SystemOffset>
+    <RecordingEndTime>
+        1435675999522332
+    </RecordingEndTime>
+    <Protocol>
+        CHD - Solar
+    </Protocol>
+</PatientInfo>

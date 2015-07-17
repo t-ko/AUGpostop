@@ -1,0 +1,28 @@
+   <ActiveAlerts>
+      <Alert condition="CDI-disconnected" >
+         <message>Terumo CDI™ 101: Disconnected</message>
+         <problem>Communication link with the Terumo CDI 101 cannot be established.</problem>
+         <resolution>Check cable connections.</resolution>
+         <device>CDI</device>
+      </Alert>
+      <Alert condition="Invivo-disconnected" >
+         <message>Invivo Precess™: Disconnected</message>
+         <problem>Communication link with the Invivo Precess cannot be established.</problem>
+         <resolution>Check cable connections.</resolution>
+         <device>Invivo</device>
+      </Alert>
+      <Alert condition="Solar-disconnected" >
+         <message>GE Solar®: Disconnected</message>
+         <problem>Communication link with the GE Solar cannot be established.&lt;br>The GE Solar interface is configured for serial communications.</problem>
+         <resolution>Check cable connections.</resolution>
+         <button>Device Setup</button>
+         <device>Solar</device>
+      </Alert>
+      <Alert condition="Video-disconnected" >
+         <message>Video Camera: Disconnected</message>
+         <problem>Communication link with the Video Camera cannot be established.</problem>
+         <resolution>Check cable connections.</resolution>
+         <button>Device Setup</button>
+         <device>Video</device>
+      </Alert>
+   </ActiveAlerts>
